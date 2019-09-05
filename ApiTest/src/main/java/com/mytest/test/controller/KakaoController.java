@@ -25,7 +25,7 @@ public class KakaoController {
     public String kakaoPay() {
         System.out.println("kakaoPay post............................................");
         
-        return "redirect:test/" + kakaopay.kakaoPayReady();
+        return "redirect:" + kakaopay.kakaoPayReady();
  
     }
     
@@ -34,8 +34,9 @@ public class KakaoController {
         System.out.println("kakaoPaySuccess get............................................");
         System.out.println("kakaoPaySuccess pg_token : " + pg_token);
         
-        model.addAttribute("pg_token", pg_token);
-        
+        //model.addAttribute("pg_token", pg_token);
+        model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
+       
         return "kakaoPaySuccess";
     }
 
