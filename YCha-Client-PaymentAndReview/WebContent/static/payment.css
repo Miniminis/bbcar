@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+/* common setting*/
+
+/* 네브바  */
+.ftco-navbar-light {
+	background : black !important
+}
+
+@media (max-width: 991.98px) {
+	.ftco-navbar-light .navbar-brand {
+    	color: pink;
+	}	
+}
+
+.ftco-navbar-light .navbar-brand {
+	color : #fff;
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+	color : rgba(255, 255, 255, 0.6);
+}
+/* 결제 수단 선택 페이지*/
+
+#payment-choice-section {
+	margin-bottom: 0;
+    height: 100vh;	
+}
+
+.payimg {
+	width : 150px;
+	height : 150px;
+	margin: 10px;
+	cursor: pointer;
+}
