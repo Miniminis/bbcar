@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: 필수속성! - DAO 에서 식별하기 위함! -->
+<mapper namespace="com.ycha.par.dao.PaymentDao">
+
+	<select id="selectPridxByPidx" resultType="int">
+		select pr_idx from P_RESERVATION where p_idx=#{idx};
+	</select>
+
+	<select id="selectRDVByPridx" resultType="com.ycha.par.domain.RDV">
+		select * from RDV where pr_idx=#{idx};
+	</select>
+
+</mapper>
