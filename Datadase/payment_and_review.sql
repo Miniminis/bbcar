@@ -47,7 +47,7 @@ SELECT * FROM P_RESERVATION;
 INSERT INTO PAYMENT VALUES(NULL, 1, '2019-09-06', 1000-700,  10, 5000, 700, '서울시 마포구 합정동', 1000, '서울시 종로구 종로2가');
 SELECT * FROM RDV WHERE R_IDX=1; 
 select pr_idx from P_RESERVATION where p_idx=1;
-
+select * from RDV where pr_idx=1;
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- 리뷰
 ALTER TABLE REVIEW
