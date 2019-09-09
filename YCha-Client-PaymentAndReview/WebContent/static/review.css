@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+.br-theme-fontawesome-stars .br-widget a {
+	font: normal normal normal 70px FontAwesome !important;
+}
