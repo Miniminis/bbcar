@@ -1,5 +1,25 @@
 @charset "UTF-8";
 
+/* 전체 form 크기 pc 화면에 맞게 재정의  */
+@media only screen and (min-width: 760px) {
+	#reviewForm {
+		margin : 0 auto;
+		width: 600px;
+	}
+}
+
+/* 별점 */
 .br-theme-fontawesome-stars .br-widget a {
 	font: normal normal normal 70px FontAwesome !important;
+}
+
+.br-theme-fontawesome-stars .br-widget {
+	text-align: center;
+	margin: 30px 0 70px 0;
+}
+
+/* 등록버튼 */
+.btn.btn-primary {
+	border: 1px solid #333 !important;
+	height: 50px;
 }
