@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>연차 - 결제실패</title>
+    <title>연차 - 결제성공</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -43,20 +43,53 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>카풀찾기</span></a></li>
-	          <li class="nav-item"><a href="#services-section" class="nav-link"><span>예약내역</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>전체 운행 리스트</span></a></li>
-	          <li class="nav-item"><a href="#destination-section" class="nav-link"><span>결제내역</span></a></li>
-	          <li class="nav-item"><a href="#hotel-section" class="nav-link"><span>후기</span></a></li>
-	          <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>마이페이지</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link"><span>카풀찾기</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link"><span>예약내역</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link"><span>전체 운행 리스트</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link"><span>결제내역</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link"><span>후기</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link"><span>마이페이지</span></a></li>
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
 	  
 	  <section class="ftco-intro" id="payment-choice-section">
-		<h1>결제 실패</h1>
-		
+		<h1>결제 성공</h1>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">항목</th>
+		      <th scope="col">내용</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">날짜</th>
+		      <td id="date"></td>
+		    </tr>
+		    <tr>
+		      <th scope="row">총 운행거리/총 운행시간</th>
+		      <td id="distance"></td>
+		    </tr>
+		    <tr>
+		      <th scope="row">총 금액</th>
+		      <td id="amount"></td>
+		    </tr>
+		    <tr>
+		      <th scope="row">결제수단</th>
+		      <td id="method"></td>
+		    </tr>
+		    <tr>
+		      <th scope="row">출발시간/출발지</th>
+		      <td id="stime"></td>
+		    </tr>
+		    <tr>
+		      <th scope="row">도착시간/도착지</th>
+		      <td id="etime"></td>
+		    </tr>
+		  </tbody>
+		</table>
 	  </section>
 
     

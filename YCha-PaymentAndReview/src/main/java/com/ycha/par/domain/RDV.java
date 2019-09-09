@@ -2,11 +2,14 @@ package com.ycha.par.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class RDV {
 	
 	private int r_idx;
 	private int dr_idx;
 	private int pr_idx;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd hh:mm", timezone="Asia/Seoul")
 	private Date r_date;
 	private int rs_time;
 	private int re_time;

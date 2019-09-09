@@ -17,9 +17,9 @@ CREATE TABLE PAYMENT (
 	sertime     INT(10)      NOT NULL, -- 총운행시간
 	serdistance INT(20)      NOT NULL, -- 총운행거리
 	serprice    INT(10)      NOT NULL, -- 총금액
-	dtime       DATE         NOT NULL, -- 출발시간
+	dtime       INT(10)      NOT NULL, -- 출발시간
 	dplace      VARCHAR(255) NOT NULL, -- 출발지
-	atime       DATE         NOT NULL, -- 도착시간
+	atime       INT(10)      NOT NULL, -- 도착시간
 	aplace      VARCHAR(255) NOT NULL  -- 도착지
 );
 
@@ -42,6 +42,8 @@ ALTER TABLE PAYMENT
         
 SELECT * FROM PAYMENT;
 DESC PAYMENT;
+
+drop table PAYMENT;
 SELECT * FROM RDV;
 SELECT * FROM P_RESERVATION;
 INSERT INTO PAYMENT VALUES(NULL, 1, '2019-09-06', 1000-700,  10, 5000, 700, '서울시 마포구 합정동', 1000, '서울시 종로구 종로2가');
@@ -125,7 +127,7 @@ SELECT * FROM REVIEW;
 DESC REVIEW;
 
 SELECT * FROM RDV;
-
+drop table REVIEW;
 INSERT INTO REVIEW VALUES (NULL, 1, 1, 1, '운전자 분이 엄청 친절해서 좋았어요! ', 10, '탑승자 분은 조용한 편이어서 운전하기 편했어요 ', 9);
 
 -- RDV -----------------------------------------------------------------------------------------------------------
@@ -260,3 +262,4 @@ VALUES (NULL, 4, '2019-09-06', 800, '출근', '서울시 마포구 합정동', '
 INSERT INTO P_RESERVATION 
 VALUES (NULL, 5, '2019-09-07', 730, '출근', '서울시 마포구 합정동', '서울시 종로구 종로3가', 5000, 10, 'N');
 
+select * from P_RESERVATION;

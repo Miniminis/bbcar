@@ -5,13 +5,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- namespace: 필수속성! - DAO 에서 식별하기 위함! -->
 <mapper namespace="com.ycha.par.dao.PaymentDao">
-
+	
+	<!-- p_idx를 통해  pr_idx조회 -->
 	<select id="selectPridxByPidx" resultType="int">
 		select pr_idx from P_RESERVATION where p_idx=#{idx};
 	</select>
 
+	<!-- pr_idx 통해서 전체 예약 내역 검색 -->
 	<select id="selectRDVByPridx" resultType="com.ycha.par.domain.RDV">
 		select * from RDV where pr_idx=#{idx};
 	</select>
+	
+	<!-- payment 내역 DB에 insert -->
+	<insert id="insertPayRecord" parameterType="com.ycha.par.domain.Payment">
+		INSERT INTO PAYMENT VALUES(NULL, #{r_idx}, #{serdate}, #{sertime},  #{serdistance}, #{serprice}, #{dtime}, #{dplace}, #{atime}, #{aplace});		
+	</insert>
 
 </mapper>
