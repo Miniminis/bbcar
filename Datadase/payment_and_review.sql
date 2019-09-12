@@ -132,7 +132,9 @@ INSERT INTO REVIEW VALUES (NULL, 1, 1, 1, '운전자 분이 엄청 친절해서 
 
 select * from PAYMENT;
 select payidx from PAYMENT where r_idx=1;
+delete from PAYMENT where payidx=2;
 
+select dr_idx, pr_idx from RDV where r_idx=1;
 
 
 

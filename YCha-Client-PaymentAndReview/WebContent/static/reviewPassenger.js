@@ -1,5 +1,15 @@
 $(document).ready(function(){
 	
+	$(function() {
+		$('#starRate').barrating({
+			theme : 'fontawesome-stars'
+		});
+	});
+	$('#starRate').barrating({
+		theme : 'fontawesome-stars',
+		initialRating : 10
+	});
+	
 	/* 후기 등록 
 	 * 1. 사용자 세션 값에서 p_idx, 닉네임 가져오기 --> input 에 넣어주기 
 	 * 2. form 제출 --> DB에 insert 
@@ -32,6 +42,7 @@ $(document).ready(function(){
 		//session 에서 p_idx 값 가져오기 : 현재는 임의의 값 1 
 		$.ajax({
 			url : 'http://localhost:8080/par/review/passenger',
+			type: 'post',
 			data : JSON.stringify({
 				r_idx : paramArray[1],
 				p_idx : 1,
