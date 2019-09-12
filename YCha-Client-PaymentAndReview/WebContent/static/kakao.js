@@ -89,7 +89,7 @@ function paymentDetail(data){
 				$('#etime').html(arrvietime+'시 / '+arriveplace);
 				
 				setTimeout(function(){
-					window.location.href='http://localhost:8080/parclient/review/writePassenger.html'; //탑승자 후기 작성 페이지로 이동 
+					window.location.href='http://localhost:8080/parclient/review/writePassenger.html?reservationIdx'; //탑승자 후기 작성 페이지로 이동 
 				}, 10000);
 				
 			} else {

@@ -78,10 +78,10 @@ CREATE TABLE REVIEW (
 	payidx     INT(7)       NOT NULL, -- 결제번호
 	p_idx      INT(10)      NOT NULL, -- 탑승자번호
 	d_idx      INT(10)      NOT NULL, -- 운전자번호
-	pr_content VARCHAR(255) NOT NULL, -- 탑승자리뷰내용
-	pr_star    INT(10)      NOT NULL default 0, -- 탑승자별점
-	dr_content VARCHAR(255) NOT NULL, -- 운전자리뷰내용
-	dr_star    INT(10)      NOT NULL default 0  -- 운전자별점
+	pr_content VARCHAR(255) default '', -- 탑승자리뷰내용
+	pr_star    INT(10)      default 10, -- 탑승자별점
+	dr_content VARCHAR(255) default '', -- 운전자리뷰내용
+	dr_star    INT(10)      default 10  -- 운전자별점
 );
 
 -- 리뷰
@@ -125,10 +125,17 @@ ALTER TABLE REVIEW
         
 SELECT * FROM REVIEW;
 DESC REVIEW;
-
+select * from P_RESERVATION;
 SELECT * FROM RDV;
 drop table REVIEW;
 INSERT INTO REVIEW VALUES (NULL, 1, 1, 1, '운전자 분이 엄청 친절해서 좋았어요! ', 10, '탑승자 분은 조용한 편이어서 운전하기 편했어요 ', 9);
+
+select * from PAYMENT;
+select payidx from PAYMENT where r_idx=1;
+
+
+
+
 
 -- RDV -----------------------------------------------------------------------------------------------------------
 -- 확정된예약

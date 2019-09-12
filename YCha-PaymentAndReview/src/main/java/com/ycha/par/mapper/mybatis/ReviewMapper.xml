@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: 필수속성! - DAO 에서 식별하기 위함! -->
+<mapper namespace="com.ycha.par.dao.ReviewDao">
+
+	<!-- payidx 조회  -->
+	<select id="selectPayIdx" resultType="int">
+		select payidx from PAYMENT where r_idx=#{r_idx};
+	</select>
+	
+	<!-- pr_idx, dr_idx 조회  -->
+	<select id="selectRDVByRIdx" resultType="map">
+		select dr_idx, pr_idx from RDV where r_idx=#{r_idx};
+	</select>
+	
+	<!-- review 내역 등록 -->
+	
+	
+</mapper>
