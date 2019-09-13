@@ -1,12 +1,12 @@
 package com.ycha.par.dao;
 
-import java.util.List;
-import java.util.Map;
+import com.ycha.par.domain.Review;
+import com.ycha.par.domain.ReviewInfo;
 
 public interface ReviewDao {
 
-	public int selectPayIdx(int r_idx);
+	public ReviewInfo selectByRIdx(int r_idx);
 
-	public List<Map<String, Object>> selectRDVByRIdx(int r_idx);
-
+	public int insertReview(Review review);
+	
 }

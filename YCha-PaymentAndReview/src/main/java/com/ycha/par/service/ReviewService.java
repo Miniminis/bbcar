@@ -1,14 +1,12 @@
 package com.ycha.par.service;
 
-import java.util.List;
-import java.util.Map;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ycha.par.dao.ReviewDao;
 import com.ycha.par.domain.Review;
+import com.ycha.par.domain.ReviewInfo;
 
 @Service("reviewService")
 public class ReviewService {
@@ -35,6 +33,8 @@ public class ReviewService {
 
 		//null 로 insert  
 		private int rv_idx; - auto increment 
+		
+		//삽입안함
 		private String dr_content;
 		private int dr_star;
 		
@@ -44,13 +44,16 @@ public class ReviewService {
 		
 		*/
 		
-		int payidx = dao.selectPayIdx(review.getR_idx());
-		System.out.println("리뷰 등록 05  "+ payidx);
+		ReviewInfo reviewInfo = dao.selectByRIdx(review.getR_idx());
+		System.out.println("리뷰 등록 05  "+reviewInfo);
 		
-		List<Map<String, Object>> map = dao.selectRDVByRIdx(review.getR_idx());
-		System.out.println("리뷰 등록 03  "+map.get(0));
+		review.setPayidx(reviewInfo.getPayidx());
+		review.setD_idx(reviewInfo.getD_idx());
 		
-		return 0;
+		int rscnt = dao.insertReview(review);
+		System.out.println("리뷰 등록 06  "+rscnt);
+		
+		return rscnt;
 	}
 
 }

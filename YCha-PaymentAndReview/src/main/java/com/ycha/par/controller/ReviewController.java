@@ -25,8 +25,8 @@ public class ReviewController {
 		
 		System.out.println("리뷰 등록 03  "+review);
 		
-		int rscnt = reviewService.insertReview(review);
-		return rscnt;
+		return reviewService.insertReview(review);
+		
 	}
 	
 

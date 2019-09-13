@@ -7,16 +7,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.ycha.par.dao.ReviewDao">
 
 	<!-- payidx 조회  -->
-	<select id="selectPayIdx" resultType="int">
-		select payidx from PAYMENT where r_idx=#{r_idx};
-	</select>
-	
-	<!-- pr_idx, dr_idx 조회  -->
-	<select id="selectRDVByRIdx" resultType="map">
-		select dr_idx, pr_idx from RDV where r_idx=#{r_idx};
+	<select id="selectByRIdx" resultType="com.ycha.par.domain.ReviewInfo">
+		select payidx, d_idx, p_idx from PAYMENT 
+		join RDV using (r_idx) 
+		join P_RESERVATION using(pr_idx) 
+		join D_RESERVATION using(dr_idx) 
+		where r_idx=#{r_idx};
 	</select>
 	
 	<!-- review 내역 등록 -->
-	
+	<insert id="insertReview" parameterType="com.ycha.par.domain.Review">
+		insert into REVIEW (payidx, p_idx, d_idx, pr_content, pr_star) values (#{payidx}, #{p_idx}, #{d_idx}, #{pr_content}, #{pr_star});
+	</insert>
 	
 </mapper>

@@ -78,10 +78,10 @@ CREATE TABLE REVIEW (
 	payidx     INT(7)       NOT NULL, -- 결제번호
 	p_idx      INT(10)      NOT NULL, -- 탑승자번호
 	d_idx      INT(10)      NOT NULL, -- 운전자번호
-	pr_content VARCHAR(255) default '', -- 탑승자리뷰내용
-	pr_star    INT(10)      default 10, -- 탑승자별점
-	dr_content VARCHAR(255) default '', -- 운전자리뷰내용
-	dr_star    INT(10)      default 10  -- 운전자별점
+	pr_content VARCHAR(255) , -- 탑승자리뷰내용
+	pr_star    INT(10)      , -- 탑승자별점
+	dr_content VARCHAR(255) , -- 운전자리뷰내용
+	dr_star    INT(10)       -- 운전자별점
 );
 
 -- 리뷰
@@ -129,15 +129,18 @@ select * from P_RESERVATION;
 SELECT * FROM RDV;
 drop table REVIEW;
 INSERT INTO REVIEW VALUES (NULL, 1, 1, 1, '운전자 분이 엄청 친절해서 좋았어요! ', 10, '탑승자 분은 조용한 편이어서 운전하기 편했어요 ', 9);
+delete from REVIEW where rv_idx=1;
 
 select * from PAYMENT;
 select payidx from PAYMENT where r_idx=1;
-delete from PAYMENT where payidx=2;
+delete from PAYMENT where payidx=10;
 
 select dr_idx, pr_idx from RDV where r_idx=1;
 
-
-
+select * from PAYMENT, RDV, P_RESERVATION, D_RESERVATION where (PAYMENT.r_idx = RDV.r_idx = 1) and (P_RESERVATION.pr_idx = RDV.pr_idx) and (D_RESERVATION.dr_idx=RDV.dr_idx);
+select payidx, d_idx, p_idx from PAYMENT join RDV using (r_idx) join P_RESERVATION using(pr_idx) join D_RESERVATION using(dr_idx) where r_idx=1;
+insert into REVIEW (payidx, p_idx, d_idx, pr_content, pr_star) values (11, 1, 1, 'good', 9);
+select * from REVIEW;
 
 -- RDV -----------------------------------------------------------------------------------------------------------
 -- 확정된예약
