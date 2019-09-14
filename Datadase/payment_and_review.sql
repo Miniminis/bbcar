@@ -120,7 +120,9 @@ ALTER TABLE REVIEW
 		REFERENCES DRIVER ( -- 운전자
 			d_idx -- 회원번호
 		);
-        
+
+-- 데이터 추가, 삭제, 수정 후 idx 재정렬해주는 쿼리문    
+SET @COUNT = 0; UPDATE REVIEW SET rv_idx = @COUNT:=@COUNT+1;
         
         
 SELECT * FROM REVIEW;
@@ -129,11 +131,11 @@ select * from P_RESERVATION;
 SELECT * FROM RDV;
 drop table REVIEW;
 INSERT INTO REVIEW VALUES (NULL, 1, 1, 1, '운전자 분이 엄청 친절해서 좋았어요! ', 10, '탑승자 분은 조용한 편이어서 운전하기 편했어요 ', 9);
-delete from REVIEW where rv_idx=1;
+delete from REVIEW where rv_idx=9;
 
 select * from PAYMENT;
 select payidx from PAYMENT where r_idx=1;
-delete from PAYMENT where payidx=10;
+delete from PAYMENT where payidx=11;
 
 select dr_idx, pr_idx from RDV where r_idx=1;
 
@@ -141,6 +143,7 @@ select * from PAYMENT, RDV, P_RESERVATION, D_RESERVATION where (PAYMENT.r_idx = 
 select payidx, d_idx, p_idx from PAYMENT join RDV using (r_idx) join P_RESERVATION using(pr_idx) join D_RESERVATION using(dr_idx) where r_idx=1;
 insert into REVIEW (payidx, p_idx, d_idx, pr_content, pr_star) values (11, 1, 1, 'good', 9);
 select * from REVIEW;
+delete from REVIEW where rv_idx=7;
 
 -- RDV -----------------------------------------------------------------------------------------------------------
 -- 확정된예약

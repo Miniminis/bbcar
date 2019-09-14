@@ -1,8 +1,8 @@
 /*카카오페이 결제를 위한 탑승자, 예약정보  받아오기*/
-/*$(document).ready(function(){
-	
+$(document).ready(function(){
+    $("#navbar").load("framePassenger/navbar.html");
 });
-*/
+
 function getRDVInfo(pidx) {
 	
 	console.log("RDV 받아오기01 : "+pidx);

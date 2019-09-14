@@ -1,5 +1,10 @@
 $(document).ready(function(){
-	
+    
+    //navbar load 
+    $("#navbar").load("../framePassenger/navbar.html");
+    
+    
+	//url 로부터 token 값 가져오기  
 	var params = document.location.href.split('?'); 
 	console.log('kakao 결제 성공 후 token 값 01: '+params[1]);
 	
