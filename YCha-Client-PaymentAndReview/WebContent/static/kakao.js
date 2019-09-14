@@ -19,6 +19,7 @@ $(document).ready(function(){
 			//1. 결제 DB에 저장 처리 및 
 			//2. 결제 내역 보여주기 위해 따로 매서드로 페이지 구성 처리 
 			paymentDetail(data);
+			
 		}, 
 		error : function(e) {
 			console.log('결제 승인 실패함 ');
@@ -86,6 +87,7 @@ function paymentDetail(data){
 				 * 9. 결제 수단 payment_method_type
 				 * */
 				
+				//탑승자 - 결제 내역 표시 
 				$('#date').html(servicedate);
 				$('#distance').html(servicedistance+'km / '+servicetime+'시간');
 				$('#amount').html(amount01+'원');
@@ -93,9 +95,14 @@ function paymentDetail(data){
 				$('#stime').html(departtime +'시 / '+departplace);
 				$('#etime').html(arrvietime+'시 / '+arriveplace);
 				
+				//탑승자 페이지 갱신 
 				setTimeout(function(){
 					window.location.href='http://localhost:8080/parclient/review/writePassenger.html?r_idx='+reservationIdx; //탑승자 후기 작성 페이지로 이동 
 				}, 5000);
+				
+				//운전자 화면 - 입금내역 표시 
+				//시간차 주의 : 탑승자 결제내용이 DB에 입력 되고 난 후에야 조회 가능함!
+				depositDetail(reservationIdx);
 				
 			} else {
 				console.log('결제내역06 '+data);

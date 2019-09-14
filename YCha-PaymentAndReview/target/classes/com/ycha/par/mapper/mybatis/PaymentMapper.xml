@@ -7,18 +7,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.ycha.par.dao.PaymentDao">
 	
 	<!-- p_idx를 통해  pr_idx조회 -->
-	<select id="selectPridxByPidx" resultType="int">
-		select pr_idx from P_RESERVATION where p_idx=#{idx};
-	</select>
-
-	<!-- pr_idx 통해서 전체 예약 내역 검색 -->
-	<select id="selectRDVByPridx" resultType="com.ycha.par.domain.RDV">
-		select * from RDV where pr_idx=#{idx};
+	<select id="selectRDVByPidx" resultType="com.ycha.par.domain.RDV">
+		select r_idx, dr_idx, pr_idx, r_date, rs_time, re_time, r_commute, r_startpoint, r_endpoint, r_fee, r_distance from P_RESERVATION join RDV using (pr_idx) where p_idx=#{idx};
 	</select>
 	
 	<!-- payment 내역 DB에 insert -->
 	<insert id="insertPayRecord" parameterType="com.ycha.par.domain.Payment">
 		INSERT INTO PAYMENT VALUES(NULL, #{r_idx}, #{serdate}, #{sertime},  #{serdistance}, #{serprice}, #{dtime}, #{dplace}, #{atime}, #{aplace});		
 	</insert>
+	
+	<!-- r_idx 통해서 Payment 조회 -->
+	<select id="selectOneByRIdx" resultType="com.ycha.par.domain.Payment">
+		select * from PAYMENT where r_idx = #{r_idx};
+	</select>
 
 </mapper>

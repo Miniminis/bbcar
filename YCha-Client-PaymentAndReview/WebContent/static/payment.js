@@ -58,3 +58,7 @@ function kakaoPayProcess(r_idx, p_idx, r_fee, tax_free_amount) {
 		
 	})
 }
+
+//결제 리스트 받아서 탑승자 html 구성 
+
+//결제 리스트 받아서 운전자 html 구성 

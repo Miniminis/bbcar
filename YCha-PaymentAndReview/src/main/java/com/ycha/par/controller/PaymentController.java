@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ycha.par.domain.KakaoPayPreReady;
-import com.ycha.par.domain.KakaoPayResult;
 import com.ycha.par.domain.Payment;
 import com.ycha.par.domain.RDV;
+import com.ycha.par.service.GetOnePayService;
 import com.ycha.par.service.KakaoPayService;
 import com.ycha.par.service.PayInsertService;
 import com.ycha.par.service.RDVService;
@@ -34,6 +34,9 @@ public class PaymentController {
 	
 	@Autowired
 	private PayInsertService payInsertService;
+	
+	@Autowired
+	private GetOnePayService getOnePayService;
 	
 	
 	//예약 정보 받아오기 위한 get  
@@ -59,6 +62,7 @@ public class PaymentController {
 		return kakaoPayService.kakaoPayReady(kakaoPayPreReady);
 	}
 	
+	//카카오페이 성공시 호출 매서드 
 	@GetMapping("/kakao/success")
 	@CrossOrigin
 	@ResponseBody
@@ -70,19 +74,9 @@ public class PaymentController {
 		//return "http://localhost:8080/parclient/kakao/success.jsp";
 		return kakaoPayService.getkakaoPayResult(pg_token);
 	}
+		
 	
-	/*@GetMapping("/kakao/cancle")
-	public void kakaoPayCancle() {
-		System.out.println("kakao pay 요청 10 ");
-	}
-
-	@GetMapping("/kakao/fail")
-	public void kakaoPayFail() {
-		System.out.println("kakao pay 요청 11 ");
-	}*/
-	
-	
-	//결제 완료 후 DB에 저장처리 
+	//탑승자 - 결제 완료 후 DB에 저장처리 
 	@PostMapping()
 	@CrossOrigin
 	@ResponseBody
@@ -92,5 +86,17 @@ public class PaymentController {
 		
 		return payInsertService.insert(payment);
 
+	}
+	
+	//운전자 - 결제 완료 후 DB에서 결제 내역 가져오기 
+	@GetMapping("/{idx}")
+	@CrossOrigin
+	@ResponseBody
+	public Payment getPaymentDetail(@PathVariable("idx") int r_idx) {
+		
+		System.out.println("입금내역 02  "+r_idx);
+		
+		return getOnePayService.getPayDetail(r_idx);
+		
 	}
 }

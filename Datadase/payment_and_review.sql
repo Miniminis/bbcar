@@ -122,7 +122,8 @@ ALTER TABLE REVIEW
 		);
 
 -- 데이터 추가, 삭제, 수정 후 idx 재정렬해주는 쿼리문    
-SET @COUNT = 0; UPDATE REVIEW SET rv_idx = @COUNT:=@COUNT+1;
+SET @COUNT = 1; UPDATE REVIEW SET rv_idx = @COUNT:=@COUNT+1;
+SET @COUNT = 1; UPDATE PAYMENT SET payidx = @COUNT:=@COUNT+1;
         
         
 SELECT * FROM REVIEW;
@@ -135,7 +136,7 @@ delete from REVIEW where rv_idx=9;
 
 select * from PAYMENT;
 select payidx from PAYMENT where r_idx=1;
-delete from PAYMENT where payidx=11;
+delete from PAYMENT where payidx=16;
 
 select dr_idx, pr_idx from RDV where r_idx=1;
 
@@ -143,7 +144,12 @@ select * from PAYMENT, RDV, P_RESERVATION, D_RESERVATION where (PAYMENT.r_idx = 
 select payidx, d_idx, p_idx from PAYMENT join RDV using (r_idx) join P_RESERVATION using(pr_idx) join D_RESERVATION using(dr_idx) where r_idx=1;
 insert into REVIEW (payidx, p_idx, d_idx, pr_content, pr_star) values (11, 1, 1, 'good', 9);
 select * from REVIEW;
-delete from REVIEW where rv_idx=7;
+delete from REVIEW where rv_idx=3;
+
+
+select r_idx, dr_idx, pr_idx, r_date, rs_time, re_time, r_commute, r_startpoint, r_endpoint, r_fee, r_distance from P_RESERVATION join RDV using (pr_idx) where p_idx=1; 
+
+select * from PAYMENT where r_idx = 1;
 
 -- RDV -----------------------------------------------------------------------------------------------------------
 -- 확정된예약
