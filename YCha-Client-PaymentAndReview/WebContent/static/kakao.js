@@ -54,7 +54,7 @@ function paymentDetail(data){
 	console.log('결제 내역 01 '+arriveplace);
 	
 	$.ajax({
-		url : "http://localhost:8080/par/payment",
+		url : "http://localhost:8080/par/payment/passenger",
 		type: 'post',
 		data : JSON.stringify({
 			r_idx : reservationIdx,

@@ -1,8 +1,8 @@
-/*카카오페이 결제를 위한 탑승자, 예약정보  받아오기*/
 $(document).ready(function(){
     $("#navbar").load("framePassenger/navbar.html");
 });
 
+/*카카오페이 결제를 위한 탑승자, 예약정보  받아오기*/
 function getRDVInfo(pidx) {
 	
 	console.log("RDV 받아오기01 : "+pidx);
@@ -58,7 +58,3 @@ function kakaoPayProcess(r_idx, p_idx, r_fee, tax_free_amount) {
 		
 	})
 }
-
-//결제 리스트 받아서 탑승자 html 구성 
-
-//결제 리스트 받아서 운전자 html 구성 

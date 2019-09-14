@@ -1,0 +1,23 @@
+/*paylist*/
+.card {
+    margin-bottom: 30px;
+}
+.card-header {
+    color: black;
+}
+
+.ftco-intro {
+    color : #333;
+}
+
+.table {
+    min-width: 300px !important;
+}
+
+.table th {
+    width: 50%;
+}
+
+.table tbody tr th, .table tbody tr td {
+    padding: 10px 0;
+}

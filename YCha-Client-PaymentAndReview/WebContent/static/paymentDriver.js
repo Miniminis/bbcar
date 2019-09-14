@@ -7,7 +7,7 @@ function depositDetail(r_idx) {
 	console.log('입금내역 01 '+r_idx);
 	
 	$.ajax({
-		url : "http://localhost:8080/par/payment/"+r_idx,
+		url : "http://localhost:8080/par/payment/driver/"+r_idx,
 		type: 'GET',
 		success : function(data) {
 			console.log(data);

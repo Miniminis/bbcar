@@ -46,7 +46,7 @@ DESC PAYMENT;
 drop table PAYMENT;
 SELECT * FROM RDV;
 SELECT * FROM P_RESERVATION;
-INSERT INTO PAYMENT VALUES(NULL, 1, '2019-09-06', 1000-700,  10, 5000, 700, '서울시 마포구 합정동', 1000, '서울시 종로구 종로2가');
+INSERT INTO PAYMENT VALUES(NULL, 1, '2019-09-07', 900-800,  30, 6000, 800, '서울시 강남구', 900, '서울시 종로구');
 SELECT * FROM RDV WHERE R_IDX=1; 
 select pr_idx from P_RESERVATION where p_idx=1;
 select * from RDV where pr_idx=1;
@@ -150,6 +150,10 @@ delete from REVIEW where rv_idx=3;
 select r_idx, dr_idx, pr_idx, r_date, rs_time, re_time, r_commute, r_startpoint, r_endpoint, r_fee, r_distance from P_RESERVATION join RDV using (pr_idx) where p_idx=1; 
 
 select * from PAYMENT where r_idx = 1;
+
+
+
+select payidx, r_idx, serdate, sertime, serdistance, serprice, dtime, dplace, atime, aplace from P_RESERVATION join RDV using(pr_idx) join PAYMENT using(r_idx) where p_idx = 1;
 
 -- RDV -----------------------------------------------------------------------------------------------------------
 -- 확정된예약

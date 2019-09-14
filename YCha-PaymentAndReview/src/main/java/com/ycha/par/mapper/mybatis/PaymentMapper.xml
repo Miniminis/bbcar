@@ -20,5 +20,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectOneByRIdx" resultType="com.ycha.par.domain.Payment">
 		select * from PAYMENT where r_idx = #{r_idx};
 	</select>
-
+	
+	<!-- p_idx 통해서 payment list 조회  -->
+	<select id="selectListPassenger" resultType="com.ycha.par.domain.Payment">
+		select payidx, r_idx, serdate, sertime, serdistance, serprice, dtime, dplace, atime, aplace 
+		from P_RESERVATION 
+		join RDV using(pr_idx) 
+		join PAYMENT using(r_idx) 
+		where p_idx = #{p_idx};
+	</select>
 </mapper>

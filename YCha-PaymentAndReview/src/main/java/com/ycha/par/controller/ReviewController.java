@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ycha.par.domain.Review;
 import com.ycha.par.service.ReviewService;
 
-@Controller
+@RestController
 @RequestMapping("/review/passenger")
 public class ReviewController {
 	
@@ -20,7 +21,6 @@ public class ReviewController {
 	
 	@PostMapping()
 	@CrossOrigin
-	@ResponseBody
 	public int writeReview(@RequestBody Review review) {
 		
 		System.out.println("리뷰 등록 03  "+review);

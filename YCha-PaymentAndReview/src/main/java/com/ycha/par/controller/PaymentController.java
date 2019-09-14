@@ -1,5 +1,6 @@
 package com.ycha.par.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +14,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ycha.par.domain.KakaoPayPreReady;
 import com.ycha.par.domain.Payment;
 import com.ycha.par.domain.RDV;
 import com.ycha.par.service.GetOnePayService;
+import com.ycha.par.service.GetPayListService;
 import com.ycha.par.service.KakaoPayService;
 import com.ycha.par.service.PayInsertService;
 import com.ycha.par.service.RDVService;
 
-@Controller
+@RestController
 @RequestMapping("/payment")
+/* url
+	/rdvinfo : 예약내역 
+	/kakao : kakao pay api  
+	/passenger : 탑승객 
+ 	/driver : 운전자 
+*/
 public class PaymentController {
 	
 	@Autowired
@@ -38,11 +47,12 @@ public class PaymentController {
 	@Autowired
 	private GetOnePayService getOnePayService;
 	
+	@Autowired
+	private GetPayListService getPayListService;
 	
 	//예약 정보 받아오기 위한 get  
 	@GetMapping("/rdvinfo/{idx}") 
 	@CrossOrigin
-	@ResponseBody
 	public RDV getRDV(@PathVariable("idx") int p_idx) {
 		
 		System.out.println("RDV 받아오기02"+p_idx);
@@ -54,7 +64,6 @@ public class PaymentController {
 	//kakao pay 결제 요청을 위한 post  
 	@PostMapping("/kakao") 
 	@CrossOrigin
-	@ResponseBody
 	public String kakaoPay(KakaoPayPreReady kakaoPayPreReady) {
 		
 		System.out.println("kakao pay 요청 02 "+kakaoPayPreReady.toString());
@@ -65,7 +74,6 @@ public class PaymentController {
 	//카카오페이 성공시 호출 매서드 
 	@GetMapping("/kakao/success")
 	@CrossOrigin
-	@ResponseBody
 	public Map<String, Object> kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
 		
 		System.out.println("kakao pay 성공 02 " +pg_token);
@@ -77,9 +85,8 @@ public class PaymentController {
 		
 	
 	//탑승자 - 결제 완료 후 DB에 저장처리 
-	@PostMapping()
+	@PostMapping("/passenger")
 	@CrossOrigin
-	@ResponseBody
 	public int savePayment(@RequestBody Payment payment) {
 		
 		System.out.println("결제내역02 "+ payment);
@@ -89,9 +96,8 @@ public class PaymentController {
 	}
 	
 	//운전자 - 결제 완료 후 DB에서 결제 내역 가져오기 
-	@GetMapping("/{idx}")
+	@GetMapping("/driver/{idx}")
 	@CrossOrigin
-	@ResponseBody
 	public Payment getPaymentDetail(@PathVariable("idx") int r_idx) {
 		
 		System.out.println("입금내역 02  "+r_idx);
@@ -99,4 +105,17 @@ public class PaymentController {
 		return getOnePayService.getPayDetail(r_idx);
 		
 	}
+	
+	//탑승자 - 결제 내역 출력
+	@GetMapping("/passenger/{idx}")
+	@CrossOrigin
+	public List<Payment> getPayList(@PathVariable("idx") int p_idx) {
+		
+		System.out.println("결제 리스트 02  "+p_idx);
+		
+		return getPayListService.getListPassenger(p_idx);
+		
+	}
+	
+	//운전자 - 입금내역 출력 
 }
