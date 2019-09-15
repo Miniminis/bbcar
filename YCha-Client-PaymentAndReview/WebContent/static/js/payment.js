@@ -8,7 +8,7 @@ function getRDVInfo(pidx) {
 	console.log("RDV 받아오기01 : "+pidx);
 	
 	$.ajax({
-		url : "http://localhost:8080/par/payment/rdvinfo/"+pidx,
+		url : "http://localhost:8080/par/payment/passenger/rdvinfo/"+pidx,
 		type: 'get',
 		success : function(data) {
 			//console.log('일단성공01 '+data.r_idx);

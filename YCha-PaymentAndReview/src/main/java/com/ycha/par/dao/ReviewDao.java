@@ -8,5 +8,11 @@ public interface ReviewDao {
 	public ReviewInfo selectByRIdx(int r_idx);
 
 	public int insertReview(Review review);
+
+	public Review selectByPayidx(int payidx);
+
+	public int updateDriverReview(Review review);
+
+	public int updatePassengerReview(Review review);
 	
 }

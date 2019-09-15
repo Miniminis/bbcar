@@ -14,7 +14,7 @@ import com.ycha.par.service.ReviewService;
 
 @RestController
 @RequestMapping("/review/passenger")
-public class ReviewController {
+public class ReviewPassengerController {
 	
 	@Autowired
 	private ReviewService reviewService;
@@ -23,7 +23,7 @@ public class ReviewController {
 	@CrossOrigin
 	public int writeReview(@RequestBody Review review) {
 		
-		System.out.println("리뷰 등록 03  "+review);
+		System.out.println("탑승자 리뷰 등록 03  "+review);
 		
 		return reviewService.insertReview(review);
 		

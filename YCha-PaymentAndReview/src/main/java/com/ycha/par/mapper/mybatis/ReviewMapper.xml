@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace: 필수속성! - DAO 에서 식별하기 위함! -->
 <mapper namespace="com.ycha.par.dao.ReviewDao">
 
-	<!-- payidx 조회  -->
+	<!-- review 등록을 위해 payidx, p_idx, d_idx 가져오기  -->
 	<select id="selectByRIdx" resultType="com.ycha.par.domain.ReviewInfo">
 		select payidx, d_idx, p_idx from PAYMENT 
 		join RDV using (r_idx) 
@@ -14,10 +14,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		join D_RESERVATION using(dr_idx) 
 		where r_idx=#{r_idx};
 	</select>
+
+	<!-- 기존에 특정 payidx로 등록된 리뷰가 있는지 체크  -->
+	<select id="selectByPayidx" resultType="com.ycha.par.domain.Review">
+		select * from REVIEW where payidx = #{payidx};
+	</select>
 	
-	<!-- review 내역 등록 -->
+	<!-- 기존에 등록된 review 가 있다면 driver 부분만 찾아서 업데이트 처리  -->
+	<update id="updateDriverReview" parameterType="com.ycha.par.domain.Review">
+		update REVIEW 
+		set dr_content=#{dr_content}, 
+		dr_star=#{dr_star} 
+		where payidx=#{payidx};
+	</update>
+	
+	<!-- 기존에 등록된 review 가 있다면 passenger 부분만 찾아서 업데이트 처리  -->
+	<update id="updatePassengerReview" parameterType="com.ycha.par.domain.Review">
+		update REVIEW 
+		set pr_content=#{pr_content}, 
+		pr_star=#{pr_star} 
+		where payidx=#{payidx};
+	</update>
+	
+	
+	<!-- 기존에 등록된 리뷰가 없다면 : review 내용 등록 -->
 	<insert id="insertReview" parameterType="com.ycha.par.domain.Review">
-		insert into REVIEW (payidx, p_idx, d_idx, pr_content, pr_star) values (#{payidx}, #{p_idx}, #{d_idx}, #{pr_content}, #{pr_star});
+		insert into REVIEW values (null, #{payidx}, #{p_idx}, #{d_idx}, #{pr_content}, #{pr_star}, #{dr_content}, #{dr_star});
 	</insert>
 	
 </mapper>

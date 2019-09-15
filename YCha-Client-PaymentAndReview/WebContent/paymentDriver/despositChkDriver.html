@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>연차 - 결제성공</title>
+<title>연차 - 입금확인</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,9 +40,7 @@
 
 <!-- 커스텀 css/js 파일-->
 <link rel="stylesheet" href="../static/css/payment.css">
-<!-- 결제 성공시 운전자 페이지 갱신을 위한 js file 연결  -->
 <script src="../static/js/paymentDriver.js"></script>
-<script src="../static/js/kakao.js"></script>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
@@ -52,8 +50,9 @@
 	<div id="navbar"></div>
 	<!--navbar 끝 -->
 
-	<section class="ftco-intro" id="payment-choice-section">
-		<h1>결제 성공</h1>
+	<section class="ftco-intro">
+		<h1>입금 확인</h1>
+
 		<table class="table">
 			<thead>
 				<tr>
@@ -64,27 +63,27 @@
 			<tbody>
 				<tr>
 					<th scope="row">날짜</th>
-					<td id="date"></td>
+					<td id="d_date"></td>
 				</tr>
 				<tr>
 					<th scope="row">총 운행거리/총 운행시간</th>
-					<td id="distance"></td>
+					<td id="d_distance"></td>
 				</tr>
 				<tr>
 					<th scope="row">총 금액</th>
-					<td id="amount"></td>
+					<td id="d_amount"></td>
 				</tr>
 				<tr>
 					<th scope="row">결제수단</th>
-					<td id="method"></td>
+					<td id="d_method"></td>
 				</tr>
 				<tr>
 					<th scope="row">출발시간/출발지</th>
-					<td id="stime"></td>
+					<td id="d_stime"></td>
 				</tr>
 				<tr>
 					<th scope="row">도착시간/도착지</th>
-					<td id="etime"></td>
+					<td id="d_etime"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -99,6 +98,8 @@
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="../js/popper.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/jquery.easing.1.3.js"></script>
@@ -109,6 +110,8 @@
 	<script src="../js/aos.js"></script>
 	<script src="../js/jquery.animateNumber.min.js"></script>
 	<script src="../js/scrollax.min.js"></script>
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script> -->
 
 	<script src="../js/main.js"></script>
 

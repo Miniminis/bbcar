@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>연차 - 탑승자 후기</title>
+<title>연차 - 운전자 후기</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,9 +45,9 @@
 
 
 <!-- 커스텀 css/js 파일-->
-<link rel="stylesheet" href="../static/payment.css">
-<link rel="stylesheet" href="../static/review.css">
-<script src="../static/reviewPassenger.js"></script>
+<link rel="stylesheet" href="../static/css/payment.css">
+<link rel="stylesheet" href="../static/css/review.css">
+<script src="../static/js/reviewDriver.js"></script>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
@@ -56,13 +56,12 @@
    <!--navbar 시작-->
     <div id="navbar"></div>
     <!--navbar 끝 -->
-	  
 
-	<section class="ftco-intro" id="reviewSection">
+	<section class="ftco-intro">
 		
 		<div class="container">
 		<div class="container">
-		<h1 class="text-center">운전자와의 여정, 어떠셨나요?</h1>
+		<h1 class="text-center">탑승자와의 여정, 어떠셨나요?</h1>
 
 		<form id="reviewForm" method="post">
 			<!-- 별점 시작  -->
@@ -98,7 +97,7 @@
 			    <input type="text" class="form-control" id="comment" aria-describedby="emailHelp" placeholder="후기 내용을 작성해주세요.">
 		    </div>
 		    <input type="hidden" name="r_idx" id="r_idx" value="">
-		    <input type="hidden" name="p_idx" id="p_idx" value="">		    		    
+		    <input type="hidden" name="d_idx" id="d_idx" value="">		    		    
 		</form>
 		<!-- 2019.09.14 : submit 버튼을 form 내부에 넣으니 form 전송이 제대로 되지 않는 현상이 발생했다.
 		post 요청하여 DB까지도 정상적으로 저장되었고 rscnt 도 정상적으로 return 했으나 success function() 내부에 접근하지 못했음. 
