@@ -23,7 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 기존에 등록된 review 가 있다면 driver 부분만 찾아서 업데이트 처리  -->
 	<update id="updateDriverReview" parameterType="com.ycha.par.domain.Review">
 		update REVIEW 
-		set dr_content=#{dr_content}, 
+		set d_idx=#{d_idx}, 
+		dr_content=#{dr_content}, 
 		dr_star=#{dr_star} 
 		where payidx=#{payidx};
 	</update>
@@ -31,7 +32,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 기존에 등록된 review 가 있다면 passenger 부분만 찾아서 업데이트 처리  -->
 	<update id="updatePassengerReview" parameterType="com.ycha.par.domain.Review">
 		update REVIEW 
-		set pr_content=#{pr_content}, 
+		set p_idx=#{p_idx},
+		pr_content=#{pr_content}, 
 		pr_star=#{pr_star} 
 		where payidx=#{payidx};
 	</update>
@@ -41,5 +43,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertReview" parameterType="com.ycha.par.domain.Review">
 		insert into REVIEW values (null, #{payidx}, #{p_idx}, #{d_idx}, #{pr_content}, #{pr_star}, #{dr_content}, #{dr_star});
 	</insert>
+
+	<!-- 탑승자 review list -->
+	<select id="selectListByDrivers" resultType="com.ycha.par.domain.Review">
+		select rv_idx,
+		PASSENGER.nickname as p_nickname, pr_content, pr_star, 
+		DRIVER.nickname as d_nickname, dr_content, dr_star 
+		from REVIEW 
+		join DRIVER using(d_idx) 
+		join PASSENGER using(p_idx) 
+		where p_idx=#{p_idx};
+	</select>
+
+	<!-- rv_idx 로 review 내역 조회 -->
+	<select id="selectByRvIdx" resultType="com.ycha.par.domain.Review">
+		select * from REVIEW where rv_idx=#{rv_idx};
+	</select>
 	
+	<!-- passenger review만 삭제 -->
+	<update id="deleteOnlyPassengerReview">
+		update REVIEW set pr_content=null, pr_star=0 where rv_idx=#{rv_idx};
+	</update>
+	
+	<!-- 전체 review 삭제 -->
+	<delete id="deleteReview">
+		delete from REVIEW where rv_idx=#{rv_idx};
+	</delete>
 </mapper>

@@ -136,10 +136,13 @@ drop table REVIEW;
 INSERT INTO REVIEW VALUES (NULL, 17, 1, 1, '운전자 분이 엄청 친절해서 좋았어요! ', 10, '탑승자 분은 조용한 편이어서 운전하기 편했어요 ', 9);
 INSERT INTO REVIEW VALUES (NULL, 19, 1, 1, null, null, '대박조음', 10);
 
-delete from REVIEW where rv_idx=28;
+update REVIEW set pr_content='차는 괜춘했어요 ', pr_star=5 where rv_idx=31;
+delete from REVIEW where rv_idx=32;
+delete from REVIEW where rv_idx=30;
 select * from REVIEW where payidx=19;
 update REVIEW set dr_content='탑승자분은 너무 졸았어요!', dr_star=10 where payidx=19;
-
+select rv_idx, PASSENGER.nickname as p_nickname, pr_content, pr_star, DRIVER.nickname as d_nickname, dr_content, dr_star from REVIEW join DRIVER using(d_idx) join PASSENGER using(p_idx) where p_idx=1;
+select * from REVIEW where rv_idx=31;
 
 select * from PAYMENT;
 select payidx from PAYMENT where r_idx=1;
