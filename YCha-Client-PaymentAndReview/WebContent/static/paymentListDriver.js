@@ -1,14 +1,14 @@
 $(document).ready(function(){
-    $("#navbar").load("../framePassenger/navbar.html");
+    $("#navbar").load("../frameDriver/navbar.html");
     
     //세션에서 현재 사용자의 p_idx 값 가져오기 
-    var p_idx = 1;
+    var d_idx = 1;
     
-    console.log('결제리스트 시작 01 '+p_idx);
+    console.log('입금리스트 시작 01 '+d_idx);
     
     //결제 리스트 출력 
     $.ajax({
-    	url : 'http://localhost:8080/par/payment/passenger/'+p_idx,
+    	url : 'http://localhost:8080/par/payment/driver/'+d_idx,
     	type: 'GET',
     	success : function(data) {
     		console.log('결제리스트 시작 05 '+data);
@@ -36,7 +36,7 @@ $(document).ready(function(){
     			output += '</tbody></table></div><a href="#" class="btn btn-primary">Go somewhere</a></div></div></div>';
     		}
     		
-    		$('#passengerPayList').html(output);
+    		$('#driverDepositList').html(output);
     	},
     	error : function(e) {
     		console.log(e);

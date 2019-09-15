@@ -50,6 +50,8 @@ INSERT INTO PAYMENT VALUES(NULL, 1, '2019-09-07', 900-800,  30, 6000, 800, '서�
 SELECT * FROM RDV WHERE R_IDX=1; 
 select pr_idx from P_RESERVATION where p_idx=1;
 select * from RDV where pr_idx=1;
+
+
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- 리뷰
 ALTER TABLE REVIEW
@@ -154,6 +156,7 @@ select * from PAYMENT where r_idx = 1;
 
 
 select payidx, r_idx, serdate, sertime, serdistance, serprice, dtime, dplace, atime, aplace from P_RESERVATION join RDV using(pr_idx) join PAYMENT using(r_idx) where p_idx = 1;
+select payidx, r_idx, serdate, sertime, serdistance, serprice, dtime, dplace, atime, aplace from D_RESERVATION join RDV using(dr_idx) join PAYMENT using(r_idx) where d_idx = 1;
 
 -- RDV -----------------------------------------------------------------------------------------------------------
 -- 확정된예약

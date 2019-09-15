@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ycha.par.domain.KakaoPayPreReady;
 import com.ycha.par.domain.Payment;
 import com.ycha.par.domain.RDV;
+import com.ycha.par.service.GetDepositListService;
 import com.ycha.par.service.GetOnePayService;
 import com.ycha.par.service.GetPayListService;
 import com.ycha.par.service.KakaoPayService;
@@ -49,6 +50,9 @@ public class PaymentController {
 	
 	@Autowired
 	private GetPayListService getPayListService;
+	
+	@Autowired
+	private GetDepositListService getDepositListService;
 	
 	//예약 정보 받아오기 위한 get  
 	@GetMapping("/rdvinfo/{idx}") 
@@ -96,7 +100,7 @@ public class PaymentController {
 	}
 	
 	//운전자 - 결제 완료 후 DB에서 결제 내역 가져오기 
-	@GetMapping("/driver/{idx}")
+	@GetMapping("/result/driver/{idx}")
 	@CrossOrigin
 	public Payment getPaymentDetail(@PathVariable("idx") int r_idx) {
 		
@@ -117,5 +121,15 @@ public class PaymentController {
 		
 	}
 	
-	//운전자 - 입금내역 출력 
+	//운전자 - 입금내역 출력
+	@GetMapping("/driver/{idx}")
+	@CrossOrigin
+	public List<Payment> getDepList(@PathVariable("idx") int d_idx) {
+		
+		System.out.println("입금리스트  02  "+d_idx);
+		
+		return getDepositListService.getDepListDriver(d_idx);
+		
+	}
+	
 }

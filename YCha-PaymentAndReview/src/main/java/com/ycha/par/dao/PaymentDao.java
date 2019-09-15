@@ -12,5 +12,6 @@ public interface PaymentDao {
 	public int insertPayRecord(Payment payment);
 	public Payment selectOneByRIdx(int r_idx);
 	public List<Payment> selectListPassenger(int p_idx);
+	public List<Payment> selectListDriver(int d_idx);
 
 }
