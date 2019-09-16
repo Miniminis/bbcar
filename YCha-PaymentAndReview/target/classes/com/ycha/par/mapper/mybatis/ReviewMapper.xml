@@ -41,7 +41,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 기존에 등록된 리뷰가 없다면 : review 내용 등록 -->
 	<insert id="insertReview" parameterType="com.ycha.par.domain.Review">
-		insert into REVIEW values (null, #{payidx}, #{p_idx}, #{d_idx}, #{pr_content}, #{pr_star}, #{dr_content}, #{dr_star});
+		insert into REVIEW 
+		values (null, #{payidx}, #{p_idx}, #{d_idx}, #{pr_content}, #{pr_star}, #{dr_content}, #{dr_star});
 	</insert>
 
 	<!-- 탑승자 review list -->
@@ -54,6 +55,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		join PASSENGER using(p_idx) 
 		where p_idx=#{p_idx};
 	</select>
+	
+	<!-- 운전자 review list -->
+	<select id="selectListByPassengers" resultType="com.ycha.par.domain.Review">
+		select rv_idx,
+		PASSENGER.nickname as p_nickname, pr_content, pr_star, 
+		DRIVER.nickname as d_nickname, dr_content, dr_star 
+		from REVIEW 
+		join DRIVER using(d_idx) 
+		join PASSENGER using(p_idx) 
+		where d_idx=#{d_idx};
+	</select>
 
 	<!-- rv_idx 로 review 내역 조회 -->
 	<select id="selectByRvIdx" resultType="com.ycha.par.domain.Review">
@@ -62,11 +74,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- passenger review만 삭제 -->
 	<update id="deleteOnlyPassengerReview">
-		update REVIEW set pr_content=null, pr_star=0 where rv_idx=#{rv_idx};
+		update REVIEW 
+		set pr_content=null, pr_star=0 where rv_idx=#{rv_idx};
+	</update>
+	
+	<!-- driver review만 삭제 -->
+	<update id="deleteOnlyDriverReview">
+		update REVIEW 
+		set dr_content=null, dr_star=0 where rv_idx=#{rv_idx};
 	</update>
 	
 	<!-- 전체 review 삭제 -->
 	<delete id="deleteReview">
 		delete from REVIEW where rv_idx=#{rv_idx};
 	</delete>
+	
+	<!-- passenger review 수정 -->
+	<update id="editPassengerReview" parameterType="com.ycha.par.domain.ReviewEditPassenger">
+		update REVIEW 
+		set pr_content = #{pr_content}, pr_star=#{pr_star} 
+		where rv_idx=#{rv_idx};
+	</update>
+	
+	<!-- driver review 수정 -->
+	<update id="editDriverReview" parameterType="com.ycha.par.domain.ReviewEditDriver">
+		update REVIEW 
+		set dr_content = #{dr_content}, dr_star=#{dr_star} 
+		where rv_idx=#{rv_idx};
+	</update>
+	
 </mapper>

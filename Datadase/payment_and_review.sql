@@ -132,11 +132,14 @@ SELECT * FROM REVIEW;
 DESC REVIEW;
 select * from P_RESERVATION;
 SELECT * FROM RDV;
-drop table REVIEW;
+
+update REVIEW set pr_content = '생각해보니 차가 더러웠어요', pr_star=2 where rv_idx=31;
+update REVIEW set dr_content = '차에서 과자먹음...', dr_star=2 where rv_idx=31;
+
 INSERT INTO REVIEW VALUES (NULL, 17, 1, 1, '운전자 분이 엄청 친절해서 좋았어요! ', 10, '탑승자 분은 조용한 편이어서 운전하기 편했어요 ', 9);
 INSERT INTO REVIEW VALUES (NULL, 19, 1, 1, null, null, '대박조음', 10);
 
-update REVIEW set pr_content='차는 괜춘했어요 ', pr_star=5 where rv_idx=31;
+update REVIEW set pr_content='차는 괜춘했어요 ', pr_star=6 where rv_idx=31;
 delete from REVIEW where rv_idx=32;
 delete from REVIEW where rv_idx=30;
 select * from REVIEW where payidx=19;
