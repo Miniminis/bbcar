@@ -11,10 +11,17 @@
 	<h1>toss pay test 입니다.</h1>
 	<a onclick="tossStart()">토스결제 시작 </a>
 
-	<h2>naver pay 입니다.</h2>
+	<h1>naver pay 입니다.</h1>
 	<a onclick="naverPayStart()">네이버 페이 결제 시작 </a>
 	
+	<h1>PAYCO 로 결제</h1>
+	<a onclick="paycoStart()">네이버 페이 결제 시작 </a>
+	
 	<script>
+		function paycoStart() {
+		}
+	
+	
 		function tossStart() {
 			$.ajax({
 				url : 'http://localhost:8080/test/tosstest',
