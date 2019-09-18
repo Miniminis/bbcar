@@ -2,47 +2,14 @@ $(document).ready(function(){
     $("#navbar").load("framePassenger/navbar.html");
 });
 
-/*카카오페이 결제를 위한 탑승자, 예약정보  받아오기*/
-function getRDVInfo(pidx) {
-	
-	console.log("RDV 받아오기01 : "+pidx);
-	
-	$.ajax({
-		url : "http://localhost:8080/par/payment/passenger/rdvinfo/"+pidx,
-		type: 'get',
-		success : function(data) {
-			//console.log('일단성공01 '+data.r_idx);
-			//console.log('일단성공02 '+data.r_fee);
-			
-			var r_idx = data.r_idx;
-			var p_idx = pidx;
-			var r_fee = data.r_fee;
-			var tax_free_amount = r_fee*0.05;		
-			
-			//뽑은 예약 정보 가지고 카카오 결제 요청 
-			kakaoPayProcess(r_idx, p_idx, r_fee, tax_free_amount);
-		},
-		error : function(e) {
-			console.log('getRDVInfo() 에러발생 '+e);
-		}
-		
-	})
-}
-
 //뽑은 예약 정보 가지고 카카오 결제 요청 
-function kakaoPayProcess(r_idx, p_idx, r_fee, tax_free_amount) {
+function kakaoPayProcess(p_idx) {
 	
-	console.log('kakaopay 요청 01  '+r_fee);
+	console.log('kakaopay 요청 01  '+p_idx);
 	
 	$.ajax({
-		url : "http://localhost:8080/par/payment/kakao",
+		url : "http://localhost:8080/par/payment/kakao/p_idx/"+p_idx,
         type: 'POST',
-		data : {
-			r_idx : r_idx,
-			p_idx : p_idx,
-			r_fee : r_fee,
-			tax_free_amount : tax_free_amount
-		},
 		dataType : "text",
 		success : function(data) {
 			console.log('kakao 결제 성공  - 성공페이지로 이동'+data);

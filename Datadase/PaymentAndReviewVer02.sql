@@ -106,4 +106,26 @@ ALTER TABLE REVIEW
 			payidx -- 결제번호
 		);
         
-        
+-- -------------------------------------------------------------------------------------------------------------------------------
+select * from D_CARPOOL;
+select * from RESERVATION;
+select * from PAYMENT;
+select * from REVIEW;        
+
+-- dummies 
+insert into PAYMENT values (null, 2, default, 'card');
+delete from PAYMENT where payidx=2;
+
+
+
+
+
+-- 결제 전 예약 정보 조회 
+select r_idx, p_idx, d_fee from RESERVATION join D_CARPOOL using(dr_idx) where p_idx=1;
+
+-- 결제 내역 
+select * from RESERVATION 
+join D_CARPOOL using(dr_idx) 
+join PAYMENT using (r_idx);
+
+select paydate, d_distance, d_starttime, d_endtime, d_fee,  from 
