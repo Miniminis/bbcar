@@ -4,9 +4,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ycha.par.dao.ReviewDao;
 import com.ycha.par.domain.Review;
 import com.ycha.par.domain.ReviewEditDriver;
+import com.ycha.par.driver.dao.DriverReviewDao;
 
 @Service("editReviewByDriverService")
 
@@ -15,12 +15,12 @@ public class EditReviewByDriverService {
 	@Autowired
 	private SqlSessionTemplate template;
 	
-	private PassengerReviewDao dao;
+	private DriverReviewDao dao;
 
 	public int editReview(ReviewEditDriver reviewEdit) {
 		System.out.println("리뷰 수정 03"+reviewEdit);
 		
-		dao = template.getMapper(PassengerReviewDao.class);
+		dao = template.getMapper(DriverReviewDao.class);
 		int rscnt = 0;
 		
 		Review review = dao.selectByRvIdx(reviewEdit.getRv_idx());

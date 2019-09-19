@@ -1,6 +1,6 @@
 package com.ycha.par.domain;
 
-public class Review {
+public class ReviewListInfo {
 	
 	private int rv_idx;
 	private int p_idx; //client
@@ -9,6 +9,8 @@ public class Review {
 	private String writer;
 	private String content; //client
 	private int star; //client
+	private String p_nickname;
+	private String d_nickname;
 	
 	
 	public int getRv_idx() {
@@ -53,10 +55,23 @@ public class Review {
 	public void setStar(int star) {
 		this.star = star;
 	}
+	public String getP_nickname() {
+		return p_nickname;
+	}
+	public void setP_nickname(String p_nickname) {
+		this.p_nickname = p_nickname;
+	}
+	public String getD_nickname() {
+		return d_nickname;
+	}
+	public void setD_nickname(String d_nickname) {
+		this.d_nickname = d_nickname;
+	}
 	
 	@Override
 	public String toString() {
-		return "Review [rv_idx=" + rv_idx + ", p_idx=" + p_idx + ", d_idx=" + d_idx + ", payidx=" + payidx + ", writer="
-				+ writer + ", content=" + content + ", star=" + star + "]";
+		return "ReviewListInfo [rv_idx=" + rv_idx + ", p_idx=" + p_idx + ", d_idx=" + d_idx + ", payidx=" + payidx
+				+ ", writer=" + writer + ", content=" + content + ", star=" + star + ", p_nickname=" + p_nickname
+				+ ", d_nickname=" + d_nickname + "]";
 	}
-}
+	}

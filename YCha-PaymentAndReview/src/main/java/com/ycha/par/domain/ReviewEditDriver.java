@@ -4,8 +4,8 @@ public class ReviewEditDriver {
 	
 	private int rv_idx; 
 	private int d_idx; //from client
-	private String dr_content; //from client
-	private int dr_star; //from client
+	private String content; //from client
+	private int star; //from client
 	
 	public int getRv_idx() {
 		return rv_idx;
@@ -19,22 +19,24 @@ public class ReviewEditDriver {
 	public void setD_idx(int d_idx) {
 		this.d_idx = d_idx;
 	}
-	public String getDr_content() {
-		return dr_content;
+	public String getContent() {
+		return content;
 	}
-	public void setDr_content(String dr_content) {
-		this.dr_content = dr_content;
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public int getDr_star() {
-		return dr_star;
+	public int getStar() {
+		return star;
 	}
-	public void setDr_star(int dr_star) {
-		this.dr_star = dr_star;
+	public void setStar(int star) {
+		this.star = star;
 	}
 	
 	@Override
 	public String toString() {
-		return "ReviewEditDriver [rv_idx=" + rv_idx + ", d_idx=" + d_idx + ", dr_content=" + dr_content + ", dr_star="
-				+ dr_star + "]";
-	}	
+		return "ReviewEditDriver [rv_idx=" + rv_idx + ", d_idx=" + d_idx + ", content=" + content + ", star=" + star
+				+ "]";
+	}
+	
+	
 }

@@ -6,8 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ycha.par.dao.PaymentDao;
-import com.ycha.par.domain.Payment;
+import com.ycha.par.domain.PaymentDetail;
+import com.ycha.par.driver.dao.DriverPaymentDao;
 
 @Service("getDepositListService")
 public class GetDepositListService {
@@ -15,14 +15,14 @@ public class GetDepositListService {
 	@Autowired
 	private SqlSessionTemplate template;
 
-	private PassengerPaymentDao dao;
+	private DriverPaymentDao dao;
 
-	public List<Payment> getDepListDriver(int d_idx) {
+	public List<PaymentDetail> getDepListDriver(int d_idx) {
 		System.out.println("입금리스트 03  " + d_idx);
 
-		dao = template.getMapper(PassengerPaymentDao.class);
+		dao = template.getMapper(DriverPaymentDao.class);
 
-		List<Payment> list = dao.selectListDriver(d_idx);
+		List<PaymentDetail> list = dao.selectListDriver(d_idx);
 		System.out.println("입금리스트  04  " + list);
 
 		return list;

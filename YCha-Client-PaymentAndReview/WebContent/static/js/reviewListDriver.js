@@ -4,7 +4,7 @@ $(document).ready(function(){
     $("#navbar").load("../frameDriver/navbar.html");
     
     //현재 세션에서 p_idx 구하기
-    var d_idx = 1;
+    var d_idx = 2;
 	
     //리뷰 리스트 로딩 
     reviewListByPassengers(d_idx);
@@ -44,59 +44,55 @@ function reviewListByPassengers(d_idx) {
 			console.log('첫번쩨 리스트 성공'+data);
 			
 			var output ='';
+			var html ='';
 			
 			for(var i=0; i<data.length; i++) {
 				
 				//리스트에 내용 없을때
-				if(data[i].pr_content==null) {
-					output += '등록된 후기가 없습니다!';
-					break;
+				if(data[i].writer=="탑승자") {
+					if(data[i].content == null) {
+						output += '등록된 후기가 없습니다!';
+						break;
+					}
+					
+					output += '<div class="col-sm-6">';
+					output += '<div class="card">';
+					output += '<div class="card-header">★';
+					output += data[i].star;
+					output += '</div>';
+					output += '<div class="card-body">';
+					output += '<blockquote class="blockquote mb-0">';
+					output += '<p>'+data[i].content+'</p>';
+					output += '<footer class="blockquote-footer"><cite title="Source Title">'+data[i].p_nickname+'</cite></footer>';
+					output += '</blockquote>';
+					output += '</div>';
+					output += '</div>';
+					output += '</div>';	
+				} else if(data[i].writer=="운전자") {
+					if(data[i].content == null) {
+						html += '등록된 후기가 없습니다!';
+						break;
+					}
+					
+					html += '<div class="col-sm-6">';
+					html += '<div class="card">';
+					html += '<div class="card-header">★';
+					html += data[i].star;
+					html += '</div>';
+					html += '<div class="card-body">';
+					html += '<blockquote class="blockquote mb-0">';
+					html += '<p>'+data[i].content+'</p>';
+					html += '<footer class="blockquote-footer"><cite title="Source Title">'+data[i].d_nickname+'</cite></footer>';
+					html += '<button data-toggle="modal" data-target="#editReviewModal" data-id="'+data[i].rv_idx+'" data-nickname="'+data[i].d_nickname+'" data-star="'+data[i].star+'" data-content="'+data[i].content+'" class="btn btn-primary">리뷰수정</button>';
+					html += '<button onclick="deleteReview('+data[i].rv_idx+', '+d_idx+')" class="btn btn-primary">리뷰삭제</button>';
+					html += '</blockquote>';
+					html += '</div>';
+					html += '</div>';
+					html += '</div>';		
 				}
-				output += '<div class="col-sm-6">';
-				output += '<div class="card">';
-				output += '<div class="card-header">★';
-				output += data[i].pr_star;
-				output += '</div>';
-				output += '<div class="card-body">';
-				output += '<blockquote class="blockquote mb-0">';
-				output += '<p>'+data[i].pr_content+'</p>';
-				output += '<footer class="blockquote-footer"><cite title="Source Title">'+data[i].p_nickname+'</cite></footer>';
-				output += '</blockquote>';
-				output += '</div>';
-				output += '</div>';
-				output += '</div>';				  
 			}
-			
 			$('#reviewListByPassengers').html(output);
-			
-			output = '';
-			
-			for(var j=0; j<data.length; j++) {
-				
-				//리스트에 내용 없을때
-				if(data[j].dr_content==null) {
-					output += '등록된 후기가 없습니다!';
-					break;
-				}
-				output += '<div class="col-sm-6">';
-				output += '<div class="card">';
-				output += '<div class="card-header">★';
-				output += data[j].dr_star;
-				output += '</div>';
-				output += '<div class="card-body">';
-				output += '<blockquote class="blockquote mb-0">';
-				output += '<p>'+data[j].dr_content+'</p>';
-				output += '<footer class="blockquote-footer"><cite title="Source Title">'+data[j].d_nickname+'</cite></footer>';
-				output += '<button data-toggle="modal" data-target="#editReviewModal" data-id="'+data[j].rv_idx+'" data-nickname="'+data[j].d_nickname+'" data-star="'+data[j].dr_star+'" data-content="'+data[j].dr_content+'" class="btn btn-primary">리뷰수정</button>';
-				output += '<button onclick="deleteReview('+data[j].rv_idx+', '+d_idx+')" class="btn btn-primary">리뷰삭제</button>';
-				output += '</blockquote>';
-				output += '</div>';
-				output += '</div>';
-				output += '</div>';	
-			}
-			
-			$('#reviewWrittenByMe').html(output);
-			
+			$('#reviewWrittenByMe').html(html);
 		}, 
 		error : function(e) {
 			console.log('첫번쩨 리스트 실패'+e);
@@ -116,8 +112,8 @@ function editReview() {
 		data : JSON.stringify({
 			rv_idx : rv_idx,
 			d_idx : d_idx,
-			dr_content : $('#eContent').val(),
-			dr_star : $('#eStarRate').val()
+			content : $('#eContent').val(),
+			star : $('#eStarRate').val()
 		}),
 		contentType : 'application/json;charset=utf-8;',
 		success : function(data) {
@@ -139,7 +135,6 @@ function deleteReview(rv_idx, d_idx) {
 		$.ajax({
 			url : 'http://localhost:8080/par/review/driver/'+rv_idx+'/d_idx/'+d_idx,
 			type: 'DELETE',
-
 			success : function(data) {
 				console.log('탑승자의 후기 삭제 성공'+data);
 				if(data>0) {

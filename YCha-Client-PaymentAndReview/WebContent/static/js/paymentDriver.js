@@ -3,11 +3,17 @@ $(document).ready(function(){
     $("#navbar").load("../frameDriver/navbar.html");
 })
 
-function depositDetail(r_idx) {
+//입금 내역 check : socket 이용해서 페이지 처리 
+/*순서
+ * 1. 사용자 페이지와 통신 - 입금 내역 데이터 받아오기 (json)
+ * 2. 해당 내역 출력 
+ * */
+
+/*function depositDetail(r_idx) {
 	console.log('입금내역 01 '+r_idx);
 	
 	$.ajax({
-		url : "http://localhost:8080/par/payment/driver/result/"+r_idx,
+		url : "http://localhost:8080/par/payment/driver/"+r_idx,
 		type: 'GET',
 		success : function(data) {
 			console.log(data);
@@ -22,4 +28,4 @@ function depositDetail(r_idx) {
 			console.log('error on driver deposit page '+e);
 		}
 	})
-}
+}*/

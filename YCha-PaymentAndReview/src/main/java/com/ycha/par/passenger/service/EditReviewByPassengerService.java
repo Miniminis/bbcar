@@ -4,9 +4,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ycha.par.dao.ReviewDao;
 import com.ycha.par.domain.Review;
 import com.ycha.par.domain.ReviewEditPassenger;
+import com.ycha.par.passenger.dao.PassengerReviewDao;
 
 @Service("editReviewByPassenger")
 public class EditReviewByPassengerService {
@@ -33,6 +33,4 @@ public class EditReviewByPassengerService {
 		System.out.println("리뷰 수정 05"+rscnt);
 		return rscnt;
 	}
-	
-
 }

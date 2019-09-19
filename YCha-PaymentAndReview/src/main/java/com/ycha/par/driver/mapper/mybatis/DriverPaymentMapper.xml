@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: 필수속성! - DAO 에서 식별하기 위함! -->
+<mapper namespace="com.ycha.par.driver.dao.DriverPaymentDao">
+	
+	<!-- d_idx 통해서 payment list 조회  -->
+	<select id="selectListDriver" resultType="com.ycha.par.domain.PaymentDetail">
+		select payidx, paydate, d_distance, d_commute, d_starttime, d_endtime, 
+		d_fee, paymethod, d_startpoint, d_endpoint 
+		from PAYMENT 
+		join RESERVATION using(r_idx) 
+		join D_CARPOOL using(dr_idx) 
+		where d_idx=#{d_idx};
+	</select>
+</mapper>
