@@ -3,12 +3,15 @@ $(document).ready(function(){
 });
 
 //뽑은 예약 정보 가지고 카카오 결제 요청 
-function kakaoPayProcess(p_idx) {
+function kakaoPayProcess() {
 	
-	console.log('kakaopay 요청 01  '+p_idx);
+	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
+	var r_idx = 8;
+	
+	console.log('kakaopay 요청 01  '+r_idx);
 	
 	$.ajax({
-		url : "http://localhost:8080/par/payment/kakao/p_idx/"+p_idx,
+		url : "http://localhost:8080/par/payment/kakao/r_idx/"+r_idx,
         type: 'POST',
 		dataType : "text",
 		success : function(data) {

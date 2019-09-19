@@ -20,6 +20,7 @@ import com.ycha.par.domain.KakaoPayReady;
 import com.ycha.par.domain.KakaoPayResult;
 import com.ycha.par.domain.Payment;
 import com.ycha.par.domain.ReservationBasicInfo;
+import com.ycha.par.exception.AlreadyPaidException;
 import com.ycha.par.passenger.dao.PassengerPaymentDao;
 
 @Service("kakaoPayService")
@@ -45,19 +46,23 @@ public class KakaoPayService {
 	
 	
 	//결제 요청 : 필요한 매개변수들 headers & body 에 담아 post 로 요청 
-	public String kakaoPayReady(int p_idx) {
-		
-		/* 결제 요청을 위해 필요한 데이터 
-		 * 1. private int r_idx;
-			  private int p_idx;
-			  private int d_fee; 
-		 * */ 
-		
-		//1. dao 정의 
+	public String kakaoPayReady(int r_idx) throws AlreadyPaidException {
+		//0. dao 정의 
 		dao = template.getMapper(PassengerPaymentDao.class);
 		
+		//1. 결제 요청 시작 전, 이미 결제된 건이 있는지 검사 
+		Payment payment = dao.selectPaymentByR_idx(r_idx);
+		if(payment != null) {
+			throw new AlreadyPaidException("이미 결제된 건입니다.");
+		}
+		/* 결제 요청을 위해 필요한 데이터 
+		 *    private int r_idx;
+			  private int p_idx;
+			  private int d_fee; 
+		 * */ 		
+		
 		//2. dao - method 호출 
-		rsvBasicInfo = dao.selectReservationBasicInfo(p_idx);
+		rsvBasicInfo = dao.selectReservationBasicInfo(r_idx);
 		System.out.println("kakao pay 요청 03 "+rsvBasicInfo);
 
 		RestTemplate restTemplate = new RestTemplate();

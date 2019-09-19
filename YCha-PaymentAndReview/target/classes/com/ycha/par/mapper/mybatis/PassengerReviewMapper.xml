@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- namespace: 필수속성! - DAO 에서 식별하기 위함! -->
-<mapper namespace="com.ycha.par.dao.ReviewDao">
+<mapper namespace="com.ycha.par.passenger.dao.PassengerReviewDao">
 
 	<!-- insert 전 d_idx 조회  -->
 	<select id="selectD_idx" resultType="int">

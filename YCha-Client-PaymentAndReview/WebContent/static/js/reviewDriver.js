@@ -4,7 +4,7 @@ $(document).ready(function(){
     $("#navbar").load("../frameDriver/navbar.html");
 	
 	//현재 세션에서 d_idx, nickname 값 구해서 input 에 넣어주기 
-	$('#d_idx').val(1);
+	$('#d_idx').val(2);
 	$('#nickname').val('익명의 운전자');
 	//alert('외안나와?');
 	
@@ -44,10 +44,15 @@ function reviewSubmit(){
 			if(data>0) {
 				alert(data+'개의 소중한 리뷰가 등록되었습니다!');
 				window.location.href='http://localhost:8080/parclient/driverMain.html';
+			} else {
+				alert('리뷰 등록에 실패하였습니다. 해당 건에 대한 리뷰를 이미 작성했는지 확인해주세요!');
+				window.location.href='http://localhost:8080/parclient/driverMain.html';
 			}
 		}, 
 		error : function(e) {
 			console.log('리뷰 입력 실패 '+e);
+			alert('리뷰 등록에 실패하였습니다! ');
+			window.location.href='http://localhost:8080/parclient/driverMain.html';
 		}
 	})
 	

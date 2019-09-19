@@ -39,10 +39,11 @@ function paymentDetail(data){
 			r_idx : data.r_idx,
 			paymethod : data.paymethod
 		}),
+		//contentType:'text/plain;charset=utf-8;',
 		//다수의 데이터들을 jquery{} 객체로 보내면 서버단에 도착할때 미세한 시간차 발생. 
 		//동시에 도착하지 않기 때문에 command 객체로 한꺼번에 받는데 400에러가 계속 발생함. 
 		//json.stringify 이용하여 json 타입으로 한꺼번에 보내니 문제 없이 커맨드 객체에 binding 됨 
-		contentType:'application/json;charset=UTF-8',
+		contentType:'application/json;charset=UTF-8;',
 		success : function(data) {
 				console.log('결제내역08 '+data);
 				
@@ -61,17 +62,17 @@ function paymentDetail(data){
 				//탑승자 - 결제 내역 화면 표시 
 				$('#date').html(data.paydate);
 				$('#commuteType').html(data.d_commute);
-				$('#distance').html(data.d_distance+'km / '+servicetime+'시간');
+				$('#distance').html(data.d_distance+'km / '+(data.d_endtime-data.d_starttime)+'분');
 				$('#amount').html(data.d_fee+'원');
-				$('#method').html(paymethod);
-				$('#stime').html(data.d_starttime +'시 / '+data.d_startpoint);
-				$('#etime').html(data.d_endtime+'시 / '+data.d_endpoint);
+				$('#method').html(data.paymethod);
+				$('#stime').html(data.d_starttime +'/ '+data.d_startpoint);
+				$('#etime').html(data.d_endtime+'/ '+data.d_endpoint);
 				
 				//탑승자 페이지 갱신 
 				setTimeout(function(){
 					//일정 시간 후 : 탑승자 후기 작성 페이지로 이동 
 					window.location.href='http://localhost:8080/parclient/reviewPassenger/writePassenger.html?payidx='+data.payidx; 
-				}, 3000);
+				}, 5000);
 				
 				//운전자 페이지 갱신 - 입금내역 표시 
 				//시간차 주의 : 탑승자 결제내용이 DB에 입력 되고 난 후에야 조회 가능함!

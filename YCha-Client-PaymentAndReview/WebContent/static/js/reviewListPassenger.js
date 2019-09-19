@@ -49,11 +49,7 @@ function reviewList(p_idx) {
 			for(var i=0; i<data.length; i++) {
 				
 				//리스트에 내용 없을때
-				if(data[i].writer=="운전자") {
-					if(data[i].content == null) {
-						output += '등록된 후기가 없습니다!';
-						break;
-					}
+				if(data[i].writer=="운전자" && data[i].content != null) {
 					
 					output += '<div class="col-sm-6">';
 					output += '<div class="card">';
@@ -68,11 +64,7 @@ function reviewList(p_idx) {
 					output += '</div>';
 					output += '</div>';
 					output += '</div>';	
-				} else if(data[i].writer=="탑승자") {
-					if(data[i].content == null) {
-						html += '등록된 후기가 없습니다!';
-						break;
-					}
+				} else if(data[i].writer=="탑승자" && data[i].content != null) {
 					
 					html += '<div class="col-sm-6">';
 					html += '<div class="card">';
@@ -89,6 +81,8 @@ function reviewList(p_idx) {
 					html += '</div>';
 					html += '</div>';
 					html += '</div>';		
+				} else {
+					
 				}
 			}
 			$('#reviewListByDrivers').html(output);
@@ -143,7 +137,7 @@ function deleteReview(rv_idx, p_idx) {
 				console.log('탑승자의 후기 삭제 성공'+data);
 				if(data>0) {
 					alert(data+'개의 후기가 성공적으로 삭제되었습니다.');
-					reviewListByDrivers(p_idx);
+					reviewList(p_idx);
 				}
 			},
 			error : function(e) {

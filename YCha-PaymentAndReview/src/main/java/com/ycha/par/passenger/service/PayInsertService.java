@@ -23,6 +23,7 @@ public class PayInsertService {
 		
 		//결제 내역 등록 
 		dao = template.getMapper(PassengerPaymentDao.class);
+		
 		int rscnt = dao.insertPayRecord(r_idx, paymethod);
 		System.out.println("결제내역04 "+ rscnt);
 		

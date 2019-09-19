@@ -111,17 +111,24 @@ select * from D_CARPOOL;
 select * from RESERVATION;
 select * from PAYMENT;
 select * from REVIEW;        
+desc PAYMENT;
 
 -- dummies 
 insert into PAYMENT values (null, 2, default, 'card');
-delete from PAYMENT where payidx=2;
+delete from PAYMENT where payidx=5;
+select * from PAYMENT;
+
+-- 결제전, 이미 결제된 건이 있는지 확인
+select * from PAYMENT where r_idx= 1;
 
 -- 결제 전 예약 정보 조회 
-select r_idx, p_idx, d_fee from RESERVATION join D_CARPOOL using(dr_idx) where p_idx=1;
+select r_idx, p_idx, d_fee from RESERVATION join D_CARPOOL using(dr_idx) where r_idx=8;
 
 -- 결제 내역 
 select payidx, paydate, d_distance, d_commute, d_starttime, d_endtime, d_fee, paymethod, d_startpoint, d_endpoint 
 from PAYMENT join RESERVATION using(r_idx) join D_CARPOOL using(dr_idx) where r_idx=2;
+
+select * from PAYMENT;
 
 -- 결제 리스트 탑승자
 select  payidx, paydate, d_distance, d_commute, d_starttime, d_endtime, d_fee, paymethod, d_startpoint, d_endpoint 
@@ -137,13 +144,14 @@ where d_idx=2;
 
 -- 후기 등록 
 select d_idx from PAYMENT join RESERVATION using (r_idx) join D_CARPOOL using (dr_idx) where payidx=1;
-insert into REVIEW values (null, 1, 2, 1, "운전자", "별로;;", 2);
+insert into REVIEW values (null, 1, 2, 1, "탑승자", "짱이에요!", 10);
 select * from REVIEW where payidx=1;
 select * from REVIEW;
 
 -- passenger list 
 select * from REVIEW where p_idx=6;
 
+select * from PAYMENT;
 
 -- 후기 리스트 
 select rv_idx, p_idx, d_idx, payidx, writer, content, star, PASSENGER.nickname as p_nickname, DRIVER.nickname as d_nickname 
@@ -154,6 +162,7 @@ select * from REVIEW where rv_idx=1;
 
 -- 수정처리
 update REVIEW set content = "굳굳 낫베드", star=10 where rv_idx=1;
+update REVIEW set p_idx=6  where rv_idx=7;
 select * from REVIEW;
 
 -- 삭제 처리
@@ -166,3 +175,17 @@ from REVIEW
 join PASSENGER using(p_idx) 
 join DRIVER using(d_idx) 
 where d_idx=2;
+
+-- 예약 더미 
+select * from RESERVATION;
+select * from D_CARPOOL;
+insert into RESERVATION values (null, 1, 14, default, default);
+
+select * from REVIEW where payidx=1;
+delete from REVIEW where rv_idx=8;
+select * from REVIEW;
+
+select p_idx 
+		from PAYMENT 
+		join RESERVATION using (r_idx) 
+		join D_CARPOOL using (dr_idx) where payidx=1;

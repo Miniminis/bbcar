@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ycha.par.api.service.KakaoPayService;
+import com.ycha.par.exception.AlreadyPaidException;
 
 @RestController
 @RequestMapping("/payment/kakao")
@@ -25,13 +26,13 @@ public class PaymentKakaoController {
 	private KakaoPayService kakaoPayService;
 	
 	//kakao pay 결제 요청을 위한 post  
-	@PostMapping("/p_idx/{idx}") 
+	@PostMapping("/r_idx/{r_idx}") 
 	@CrossOrigin
-	public String kakaoPay(@PathVariable("idx") int p_idx) {
+	public String kakaoPay(@PathVariable("r_idx") int r_idx) throws AlreadyPaidException {
 		
-		System.out.println("kakao pay 요청 02 "+p_idx);
+		System.out.println("kakao pay 요청 02 "+r_idx);
 		
-		return kakaoPayService.kakaoPayReady(p_idx);
+		return kakaoPayService.kakaoPayReady(r_idx);
 	}
 	
 	//카카오페이 성공시 호출 매서드 

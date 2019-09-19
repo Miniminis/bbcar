@@ -2,7 +2,7 @@ $(document).ready(function(){
     $("#navbar").load("../frameDriver/navbar.html");
     
     //세션에서 현재 사용자의 p_idx 값 가져오기 
-    var d_idx = 1;
+    var d_idx = 2;
     
     console.log('입금리스트 시작 01 '+d_idx);
     
@@ -11,7 +11,7 @@ $(document).ready(function(){
     	url : 'http://localhost:8080/par/payment/driver/'+d_idx,
     	type: 'GET',
     	success : function(data) {
-    		console.log('결제리스트 시작 05 '+data);
+    		console.log('입금 리스트 출력 05 '+data);
     		
     		var output = '';
     		
@@ -31,9 +31,9 @@ $(document).ready(function(){
     			output += '<tbody>';
     			output += '<tr><th scope="row">날짜</th><td>'+data[i].paydate+'</td></tr>';
     			output += '<tr><th scope="row">결제 방법</th><td>'+data[i].paymethod+'</td></tr>';
-    			output += '<tr><th scope="row">총 운행거리/총 운행시간</th><td>'+data[i].d_distance+' km/ '+(data[i].d_endtime-data[i].d_starttime)+' 시간</td></tr>';
-    			output += '<tr><th scope="row">출발시간/출발지</th><td id="stime">'+data[i].d_starttime+' 시/ '+data[i].d_startpoint+'</td></tr>';
-    			output += '<tr><th scope="row">도착시간/도착지</th><td id="etime">'+data[i].d_endtime+' 시/ '+data[i].d_endpoint+'</td></tr>';
+    			output += '<tr><th scope="row">총 운행거리/총 운행시간</th><td>'+data[i].d_distance+' km/ '+(data[i].d_endtime-data[i].d_starttime)+' 분</td></tr>';
+    			output += '<tr><th scope="row">출발시간/출발지</th><td id="stime">'+data[i].d_starttime+' / '+data[i].d_startpoint+'</td></tr>';
+    			output += '<tr><th scope="row">도착시간/도착지</th><td id="etime">'+data[i].d_endtime+' / '+data[i].d_endpoint+'</td></tr>';
     			output += '</tbody></table></div><a href="#" class="btn btn-primary">Go somewhere</a></div></div></div>';
     		}
     		

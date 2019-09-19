@@ -1,12 +1,14 @@
 package com.ycha.par.passenger.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,11 +34,11 @@ public class PaymentPassengerController {
 	//탑승자 - 결제 완료 후 DB에 저장처리 + 결제 및 운행 정보 출력
 	@PostMapping()
 	@CrossOrigin
-	public PaymentDetail savePayment(@RequestParam("r_idx") int r_idx, 
-							@RequestParam("paymethod") String paymethod) {
+	public PaymentDetail savePayment(@RequestBody Map<String, Object> params) {
 		
-		System.out.println("결제내역02 "+ paymethod);
-		
+		System.out.println("결제내역02 "+ params.get("r_idx")+" / "+params.get("paymethod"));
+		int r_idx = Integer.parseInt((String)params.get("r_idx"));
+		String paymethod = (String) params.get("paymethod");
 		return payInsertService.insert(r_idx, paymethod);
 
 	}

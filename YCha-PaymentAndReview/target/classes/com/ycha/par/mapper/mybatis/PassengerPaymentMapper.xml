@@ -5,9 +5,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ycha.par.passenger.dao.PassengerPaymentDao">
+	
+	<!-- 결제 진행 전 : 이미 결제된 건이 있는지 확인 -->
+	<select id="selectPaymentByR_idx" resultType="com.ycha.par.domain.Payment">
+		select * from PAYMENT where r_idx= #{r_idx};
+	</select>
+
 	<!-- 결제 전 예약된 운행정보 확인 -->
 	<select id="selectReservationBasicInfo" resultType="com.ycha.par.domain.ReservationBasicInfo">
-		select r_idx, p_idx, d_fee from RESERVATION join D_CARPOOL using(dr_idx) where p_idx=#{p_idx};
+		select r_idx, p_idx, d_fee from RESERVATION join D_CARPOOL using(dr_idx) where r_idx=#{r_idx};
 	</select>
 	
 	<!-- 결제 완료 후 DB 저장 -->
