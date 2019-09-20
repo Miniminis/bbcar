@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 /* 전체 form 크기 pc 화면에 맞게 재정의  */
+
+
 @media only screen and (min-width: 760px) {
 	#reviewForm {
 		margin : 0 auto;
@@ -18,8 +20,34 @@
 	margin: 30px 0 70px 0;
 }
 
-/* 등록버튼 */
-.btn.btn-primary {
-	border: 1px solid #333 !important;
-	height: 50px;
+/* 후기 제출 버튼 */
+@media (max-width: 320px) {
+	.btn.btn-primary {
+		width : 260px;
+	}	
 }
+
+@media (min-width: 321px) and (max-width: 375px) {
+	.btn.btn-primary {
+		width : 315px;
+	}	
+}
+
+@media (min-width: 376px) and (max-width: 430px) {
+	.btn.btn-primary {
+		width : 350px;
+	}	
+}
+
+@media (min-width: 431px) and (max-width: 760px) {
+	.btn.btn-primary {
+		width : 480px;
+	}	
+}
+
+@media (min-width: 761px) {
+	.btn.btn-primary {
+		width : 600px;
+	}	
+}
+

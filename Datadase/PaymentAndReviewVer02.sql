@@ -128,7 +128,6 @@ select r_idx, p_idx, d_fee from RESERVATION join D_CARPOOL using(dr_idx) where r
 select payidx, paydate, d_distance, d_commute, d_starttime, d_endtime, d_fee, paymethod, d_startpoint, d_endpoint 
 from PAYMENT join RESERVATION using(r_idx) join D_CARPOOL using(dr_idx) where r_idx=2;
 
-select * from PAYMENT;
 
 -- 결제 리스트 탑승자
 select  payidx, paydate, d_distance, d_commute, d_starttime, d_endtime, d_fee, paymethod, d_startpoint, d_endpoint 
@@ -144,7 +143,7 @@ where d_idx=2;
 
 -- 후기 등록 
 select d_idx from PAYMENT join RESERVATION using (r_idx) join D_CARPOOL using (dr_idx) where payidx=1;
-insert into REVIEW values (null, 1, 2, 1, "탑승자", "짱이에요!", 10);
+insert into REVIEW values (null, 6, 2, 1, "운전자", "베려심 넘쳤음", 8);
 select * from REVIEW where payidx=1;
 select * from REVIEW;
 
@@ -186,6 +185,15 @@ delete from REVIEW where rv_idx=8;
 select * from REVIEW;
 
 select p_idx 
-		from PAYMENT 
-		join RESERVATION using (r_idx) 
-		join D_CARPOOL using (dr_idx) where payidx=1;
+from PAYMENT 
+join RESERVATION using (r_idx) 
+join D_CARPOOL using (dr_idx) where payidx=1;
+
+desc REVIEW;
+
+
+select * from PAYMENT;
+select * from REVIEW;
+delete from PAYMENT where payidx=6;
+delete from REVIEW where rv_idx=10;
+

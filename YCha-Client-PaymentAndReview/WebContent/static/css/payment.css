@@ -1,28 +1,16 @@
 @charset "UTF-8";
 
-/* common setting*/
-
-/* 네브바  */
-.ftco-navbar-light {
-	background : black !important
+/* 결제 수단 선택 페이지*/
+#pay_choose {
+    margin-top: 100px;    
 }
 
 @media (max-width: 991.98px) {
-	.ftco-navbar-light .navbar-brand {
-    	color: pink;
-	}	
+	#pay_choose {
+        margin-top: 0;    
+    }
 }
 
-.ftco-navbar-light .navbar-brand {
-	color : #fff;
-}
-
-.ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
-	color : rgba(255, 255, 255, 0.6);
-}
-
-
-/* 결제 수단 선택 페이지*/
 
 #payment-choice-section {
 	margin-bottom: 0;
@@ -35,3 +23,24 @@
 	margin: 10px;
 	cursor: pointer;
 }
+
+/*pay list*/
+.card {
+    margin-bottom: 30px;
+}
+.card-header {
+    color: black;
+}
+
+.table {
+    min-width: 300px !important;
+}
+
+.table th {
+    width: 50%;
+}
+
+.table tbody tr th, .table tbody tr td {
+    padding: 10px 0;
+}
+
