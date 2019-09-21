@@ -6,7 +6,7 @@ $(document).ready(function(){
 function kakaoPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
-	var r_idx = 8;
+	var r_idx = 4;
 	
 	console.log('kakaopay 요청 01  '+r_idx);
 	

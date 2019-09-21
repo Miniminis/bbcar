@@ -11,8 +11,9 @@
     }
 }
 
-
-#payment-choice-section {
+#payment-choice-section, 
+#pay-success-section, 
+#pay-fail-section {
 	margin-bottom: 0;
     height: 100vh;	
 }
@@ -24,12 +25,30 @@
 	cursor: pointer;
 }
 
-/*pay list*/
+/* 결제 성공 페이지 */
+#pay-success-div {
+	width : 600px;	
+}
+
+/* 결제 실패 페이지 */
+#pay-fail-div {
+	margin-top: 80px;
+}
+
+#pay-fail {
+	color : red !important;
+}
+
+/* 결제 리스트 */
 .card {
     margin-bottom: 30px;
 }
 .card-header {
     color: black;
+}
+
+.card-title {
+	padding-left: 10px;	
 }
 
 .table {
@@ -44,3 +63,17 @@
     padding: 10px 0;
 }
 
+/* 후기 리스트 페이지 */
+#reviewByDrivers,
+#reviewByPassenger,
+#reviewByMe {
+	height: auto !important;
+	padding : 8em 0 0 0;
+}
+
+/* 후기 수정/삭제 버튼 */
+.rvBtn {
+	margin-right: 5px !important;
+	margin-top: 5px !important;
+	height: 40px !important;
+}

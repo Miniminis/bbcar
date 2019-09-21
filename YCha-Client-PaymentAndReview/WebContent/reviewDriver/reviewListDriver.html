@@ -36,8 +36,8 @@
 
 
 <!-- 커스텀 css/js 파일-->
+<link rel="stylesheet" href="../static/css/default.css">
 <link rel="stylesheet" href="../static/css/payment.css">
-<link rel="stylesheet" href="../static/css/payList.css">
 <script src="../static/js/reviewListDriver.js"></script>
 
 </head>
@@ -50,8 +50,9 @@
 
 	<div class="container">
 		<section id="reviewByPassenger" class="ftco-intro">
-			<h1>탑승자들이 작성한 리뷰 리스트</h1>
 			<div class="container">
+			<h2>탑승자들이 작성한 리뷰 리스트</h2>
+			<br>
 				<div id="reviewListByPassengers" class="row">
 					<!-- 후기 리스트 출력  -->
 				</div>
@@ -59,8 +60,9 @@
 		</section>
 
 		<section id="reviewByMe" class="ftco-intro">
-			<h1>내가 작성한 후기 리스트</h1>
 			<div class="container">
+			<h2>내가 작성한 후기 리스트</h2>
+			<br>
 				<div id="reviewWrittenByMe" class="row">
 					<!-- 내가 작성한 리스트 출력  -->
 				</div>
@@ -109,7 +111,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">닫기</button>
-					<button onclick="editReview()" type="button" class="btn btn-primary">수정완료</button>
+					<button onclick="editReview()" type="button" class="btn btn-primary rvBtn">수정완료</button>
 				</div>
 			</div>
 		</div>

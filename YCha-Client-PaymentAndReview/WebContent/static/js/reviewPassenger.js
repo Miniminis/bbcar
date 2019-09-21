@@ -4,7 +4,7 @@ $(document).ready(function(){
     $("#navbar").load("../framePassenger/navbar.html");
     
     //현재 세션에서 p_idx, nickname 값 구해서 input 에 넣어주기 
-    var p_idx = 1;
+    var p_idx = 5;
     var nickname='익명의 탑승자';
 	$('#p_idx').val(p_idx);
 	$('#nickname').val(nickname);

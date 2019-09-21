@@ -39,6 +39,7 @@
 <link rel="stylesheet" href="../css/style.css">
 
 <!-- 커스텀 css/js 파일-->
+<link rel="stylesheet" href="../static/css/default.css">
 <link rel="stylesheet" href="../static/css/payment.css">
 <script src="../static/js/paymentDriver.js"></script>
 
@@ -51,42 +52,44 @@
 	<!--navbar 끝 -->
 
 	<section class="ftco-intro">
-		<h1>입금 확인</h1>
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th scope="col">항목</th>
-					<th scope="col">내용</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">날짜</th>
-					<td id="d_date"></td>
-				</tr>
-				<tr>
-					<th scope="row">총 운행거리/총 운행시간</th>
-					<td id="d_distance"></td>
-				</tr>
-				<tr>
-					<th scope="row">총 금액</th>
-					<td id="d_amount"></td>
-				</tr>
-				<tr>
-					<th scope="row">결제수단</th>
-					<td id="d_method"></td>
-				</tr>
-				<tr>
-					<th scope="row">출발시간/출발지</th>
-					<td id="d_stime"></td>
-				</tr>
-				<tr>
-					<th scope="row">도착시간/도착지</th>
-					<td id="d_etime"></td>
-				</tr>
-			</tbody>
-		</table>
+		<div id="pay-success-div" class="container text-center">
+			<h1>입금 확인</h1>
+			<br>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">항목</th>
+						<th scope="col">내용</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">날짜</th>
+						<td id="d_date"></td>
+					</tr>
+					<tr>
+						<th scope="row">총 운행거리/총 운행시간</th>
+						<td id="d_distance"></td>
+					</tr>
+					<tr>
+						<th scope="row">총 금액</th>
+						<td id="d_amount"></td>
+					</tr>
+					<tr>
+						<th scope="row">결제수단</th>
+						<td id="d_method"></td>
+					</tr>
+					<tr>
+						<th scope="row">출발시간/출발지</th>
+						<td id="d_stime"></td>
+					</tr>
+					<tr>
+						<th scope="row">도착시간/도착지</th>
+						<td id="d_etime"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</section>
 
 	<!-- loader -->

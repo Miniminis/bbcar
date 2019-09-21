@@ -75,8 +75,8 @@ function reviewList(p_idx) {
 					html += '<blockquote class="blockquote mb-0">';
 					html += '<p>'+data[i].content+'</p>';
 					html += '<footer class="blockquote-footer"><cite title="Source Title">'+data[i].p_nickname+'</cite></footer>';
-					html += '<button data-toggle="modal" data-target="#editReviewModal" data-id="'+data[i].rv_idx+'" data-nickname="'+data[i].p_nickname+'" data-star="'+data[i].star+'" data-content="'+data[i].content+'" class="btn btn-primary">리뷰수정</button>';
-					html += '<button onclick="deleteReview('+data[i].rv_idx+', '+p_idx+')" class="btn btn-primary">리뷰삭제</button>';
+					html += '<button data-toggle="modal" data-target="#editReviewModal" data-id="'+data[i].rv_idx+'" data-nickname="'+data[i].p_nickname+'" data-star="'+data[i].star+'" data-content="'+data[i].content+'" class="btn btn-primary rvBtn">리뷰수정</button>';
+					html += '<button onclick="deleteReview('+data[i].rv_idx+', '+p_idx+')" class="btn btn-primary rvBtn">리뷰삭제</button>';
 					html += '</blockquote>';
 					html += '</div>';
 					html += '</div>';

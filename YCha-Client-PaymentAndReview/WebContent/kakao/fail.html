@@ -39,8 +39,9 @@
 <link rel="stylesheet" href="../css/style.css">
 
 <!-- 커스텀 css/js 파일-->
+<link rel="stylesheet" href="../static/css/default.css">
 <link rel="stylesheet" href="../static/css/payment.css">
-<!-- <script src="../static/kakao.js" ></script> -->
+<script src="../static/kakao.js" ></script>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
@@ -51,9 +52,14 @@
 	<!--navbar 끝 -->
 
 
-	<section class="ftco-intro" id="payment-choice-section">
-		<h1>결제 실패</h1>
-
+	<section class="ftco-intro" id="pay-fail-section">
+		<div id="pay-fail-div" class="container text-center">
+			<h2 id="pay-fail">결제 실패</h2>
+			<h5 class="fnt_warning02">결제 수단을 다시 한 번 확인해주세요!</h5>
+			<br>
+			<!-- reChoosePayMethod(r_idx) 구현필요 -->
+			<a href="http://localhost:8080/parclient/index.html?r_idx=?" class="btn btn-primary text-center btn-submit">재 결제 진행</a>		
+		</div>
 	</section>
 
 	<!-- loader -->
