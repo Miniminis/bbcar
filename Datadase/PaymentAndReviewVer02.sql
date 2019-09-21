@@ -143,8 +143,8 @@ where d_idx=2;
 
 -- 후기 등록 
 select d_idx from PAYMENT join RESERVATION using (r_idx) join D_CARPOOL using (dr_idx) where payidx=1;
-insert into REVIEW values (null, 8, 1, 2, "탑승자", "베려심 넘쳤음", 10);
-insert into REVIEW values (null, 8, 1, 2, "운전자", "굳굳", 4);
+insert into REVIEW values (null, 1, 2, 8, "탑승자", "베려심 넘쳤음", 10);
+insert into REVIEW values (null, 1, 2, 8, "운전자", "굳굳", 4);
 select * from REVIEW where payidx=1;
 select * from REVIEW;
 
