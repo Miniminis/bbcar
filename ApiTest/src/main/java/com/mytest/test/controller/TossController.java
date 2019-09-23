@@ -2,9 +2,7 @@ package com.mytest.test.controller;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
@@ -12,19 +10,13 @@ import java.nio.charset.StandardCharsets;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mytest.test.domain.TossRequestVo;
-import com.mytest.test.service.TossPayService;
 
 @RestController
 @RequestMapping("/tosstest")
@@ -47,7 +39,7 @@ public class TossController {
 			connection.setDoOutput(true);
 			connection.setDoInput(true);
 
-			org.json.simple.JSONObject jsonBody = new JSONObject();
+			JSONObject jsonBody = new JSONObject();
 			jsonBody.put("orderNo", "100");
 			jsonBody.put("amount", 35000);
 			jsonBody.put("amountTaxFree", 0);

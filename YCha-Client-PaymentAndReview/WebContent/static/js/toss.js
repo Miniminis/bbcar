@@ -6,10 +6,10 @@ $(document).ready(function(){
 	//url 로부터 token 값 가져오기  
 	var params = document.location.href.split('?'); 
 	console.log('kakao 결제 성공 후 token 값 01: '+params[1]);
-	
-	//var paramArray = params[1].split('=');
-	//console.log('params.split() 결과 : '+paramArray[0]+' / '+paramArray[1]);
-	
+	console.log('kakao 결제 성공 후 token 값 01: '+params[2]);
+	console.log('kakao 결제 성공 후 token 값 01: '+params[3]);
+	console.log('kakao 결제 성공 후 token 값 01: '+params[4]);
+		
 	$.ajax({
 		url : "http://localhost:8080/par/payment/kakao/success?"+params[1],
 		success : function(data) {
@@ -17,8 +17,7 @@ $(document).ready(function(){
 			
 			//1. 결제 DB에 저장 : 결제 내역이 성공적으로 나온 뒤에 처리 
 			//2. 결제 내역 보여주기 위해 따로 매서드로 페이지 구성 처리 
-			paymentDetail(data);
-			
+			paymentDetail(data);	
 		}, 
 		error : function(e) {
 			console.log('결제 승인 실패함 ');
@@ -69,10 +68,10 @@ function paymentDetail(data){
 				$('#etime').html(data.d_endtime+'/ '+data.d_endpoint);
 				
 				//탑승자 페이지 갱신 
-				setTimeout(function(){
+				/*setTimeout(function(){
 					//일정 시간 후 : 탑승자 후기 작성 페이지로 이동 
 					window.location.href='http://localhost:8080/parclient/reviewPassenger/writePassenger.html?payidx='+data.payidx; 
-				}, 5000);
+				}, 5000);*/
 				
 				//운전자 페이지 갱신 - 입금내역 표시 
 				//시간차 주의 : 탑승자 결제내용이 DB에 입력 되고 난 후에야 조회 가능함!

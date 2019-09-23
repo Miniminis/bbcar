@@ -20,9 +20,30 @@
 	<script>
 		function paycoStart() {
 		}
-	
-	
+		
 		function tossStart() {
+			
+			var num = 5025;
+			console.log('toss pay 요청 01  '+num);
+			
+			$.ajax({
+				//url : 'http://localhost:8090/boottest/'+num,
+				url : 'http://localhost:8090/parboot/payment/toss/r_idx/'+num,
+				type: 'POST',
+				success : function(data) {
+					console.log('mission success toss01  '+data);
+					//console.log('mission success toss02  '+data.username);
+					//console.log('mission success toss03  '+data.password);
+				}, 
+				error : function(e) {
+					console.log('error 발생!!!! ㅠㅠㅠㅠ '+e)
+				}
+
+			})
+		}
+	
+	
+		/* function tossStart() {
 			$.ajax({
 				url : 'http://localhost:8080/test/tosstest',
 				type : 'POST',
@@ -40,7 +61,7 @@
 					console.log('error 발생 ' + e);
 				}
 			})
-		}
+		} */
 
 		function naverPayStart() {
 			console.log('naver pay start');

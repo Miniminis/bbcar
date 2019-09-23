@@ -2,7 +2,7 @@ $(document).ready(function(){
     $("#navbar").load("framePassenger/navbar.html");
 });
 
-//뽑은 예약 정보 가지고 카카오 결제 요청 
+//카카오 결제 요청 
 function kakaoPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
@@ -26,5 +26,32 @@ function kakaoPayProcess() {
 			window.location.href = "http://localhost:8080/parclient/kakao/fail.html";
 		}
 		
+	})
+}
+
+
+//토스 결제요청
+function tossPayProcess() {
+	
+	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
+	var r_idx = 1234;
+	console.log('toss pay 요청 01  '+r_idx);
+	
+	$.ajax({
+		url : 'http://localhost:8090/parboot/payment/toss/r_idx/'+r_idx,
+		type : 'POST',
+		dataType : 'json',
+		success : function(data) {
+			console.log('toss pay success' + data);
+			console.log('toss pay success  ' + data.checkoutPage);
+			location.replace(data.checkoutPage);
+			//window.location.href='\''+data.checkoutPage+'\''; 
+			//console.log('\'' + data.checkoutPage + '\'');
+			//href를 쓰니까 context path 가 붙는 상황 발생 
+			//따라서 replace 로 고쳐서 url 아예 바꿔줌 
+		},
+		error : function(e) {
+			console.log('error 발생 ' + e);
+		}
 	})
 }

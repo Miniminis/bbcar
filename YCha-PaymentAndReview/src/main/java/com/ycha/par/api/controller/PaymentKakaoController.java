@@ -44,5 +44,4 @@ public class PaymentKakaoController {
 		
 		return kakaoPayService.getkakaoPayResult(pg_token);
 	}
-
 }
