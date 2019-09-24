@@ -23,7 +23,7 @@ function kakaoPayProcess() {
 		},
 		error : function(data) {
 			console.log('kakao 결제 실패 - 실패 페이지 이동 ');
-			window.location.href = "http://localhost:8080/parclient/kakao/fail.html";
+			window.location.href = "http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx;
 		}
 		
 	})
@@ -34,7 +34,7 @@ function kakaoPayProcess() {
 function tossPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
-	var r_idx = 1234;
+	var r_idx = 6;
 	console.log('toss pay 요청 01  '+r_idx);
 	
 	$.ajax({
@@ -44,7 +44,10 @@ function tossPayProcess() {
 		success : function(data) {
 			console.log('toss pay success' + data);
 			console.log('toss pay success  ' + data.checkoutPage);
+			
+			//결제 요청 성공 페이지로 이동됨
 			location.replace(data.checkoutPage);
+			
 			//window.location.href='\''+data.checkoutPage+'\''; 
 			//console.log('\'' + data.checkoutPage + '\'');
 			//href를 쓰니까 context path 가 붙는 상황 발생 
@@ -52,6 +55,7 @@ function tossPayProcess() {
 		},
 		error : function(e) {
 			console.log('error 발생 ' + e);
+			//window.location.href = "http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx;
 		}
 	})
 }

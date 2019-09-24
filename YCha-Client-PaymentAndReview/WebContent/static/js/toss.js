@@ -5,12 +5,12 @@ $(document).ready(function(){
     
 	//url 로부터 token 값 가져오기  
 	var params = document.location.href.split('?'); 
-	console.log('kakao 결제 성공 후 token 값 01: '+params[1]);
-	console.log('kakao 결제 성공 후 token 값 01: '+params[2]);
-	console.log('kakao 결제 성공 후 token 값 01: '+params[3]);
-	console.log('kakao 결제 성공 후 token 값 01: '+params[4]);
+	console.log('toss 결제 성공 후 token 값 01: '+params[1]);
+	console.log('toss 결제 성공 후 token 값 01: '+params[2]);
+	console.log('toss 결제 성공 후 token 값 01: '+params[3]);
+	console.log('toss 결제 성공 후 token 값 01: '+params[4]);
 		
-	$.ajax({
+	/*$.ajax({
 		url : "http://localhost:8080/par/payment/kakao/success?"+params[1],
 		success : function(data) {
 			console.log('결제 승인08 까지 성공! '+data.paymethod);
@@ -23,7 +23,7 @@ $(document).ready(function(){
 			console.log('결제 승인 실패함 ');
 			window.location.href = "http://localhost:8080/parclient/kakao/fail.html";
 		}
-	})
+	})*/
 })
 
 //1. 결제 DB에 저장 
