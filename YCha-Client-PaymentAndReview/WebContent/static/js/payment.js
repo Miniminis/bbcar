@@ -29,12 +29,11 @@ function kakaoPayProcess() {
 	})
 }
 
-
 //토스 결제요청
 function tossPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
-	var r_idx = 6;
+	var r_idx = 11;
 	console.log('toss pay 요청 01  '+r_idx);
 	
 	$.ajax({

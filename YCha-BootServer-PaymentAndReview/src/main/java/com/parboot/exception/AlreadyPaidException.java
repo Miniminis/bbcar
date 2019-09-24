@@ -1,4 +1,4 @@
-package com.parboot.service;
+package com.parboot.exception;
 
 public class AlreadyPaidException extends Exception {
 

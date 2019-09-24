@@ -44,7 +44,6 @@ public class KakaoPayService {
 	private KakaoPayResult kakaoPayResult;
 	
 	
-	
 	//결제 요청 : 필요한 매개변수들 headers & body 에 담아 post 로 요청 
 	public String kakaoPayReady(int r_idx) throws AlreadyPaidException {
 		//0. dao 정의 

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -22,7 +23,7 @@ public class ReservationEntity {
 	@Column(length = 10, nullable = false)
 	private int p_idx;
 	
-	@Column(length = 10, nullable = false, insertable = false, updatable = false)
+	@Column(length = 10, nullable = false)
 	private int dr_idx;
 	
 	@Column(nullable = false)
@@ -78,11 +79,10 @@ public class ReservationEntity {
 	public String toString() {
 		return "ReservationEntity [r_idx=" + r_idx + ", p_idx=" + p_idx + ", dr_idx=" + dr_idx + ", r_date=" + r_date
 				+ ", r_confirm=" + r_confirm + "]";
-	}
-	
+	}	
 	
 	@ManyToOne	//다 대 일 관계 : 예약 - 카풀경로
-	@JoinColumn(name = "dr_idx") //조인 컬럼 정의 
+	@JoinColumn(name = "dr_idx", insertable = false, updatable = false) //조인 컬럼 정의 
 	private CarpoolEntity carpoolEntity; //카풀
 
 	public CarpoolEntity getCarpoolEntity() {
@@ -93,4 +93,6 @@ public class ReservationEntity {
 		this.carpoolEntity = carpoolEntity;
 	}
 	
+	@OneToOne(mappedBy = "reservationEntity")  //PAYMENT와 일대일 관계 
+	private PaymentEntity paymentEntity;
 }

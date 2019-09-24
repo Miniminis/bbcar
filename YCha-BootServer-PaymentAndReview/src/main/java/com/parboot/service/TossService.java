@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.parboot.domain.TossRequestVO;
 import com.parboot.entity.PaymentEntity;
 import com.parboot.entity.ReservationEntity;
+import com.parboot.exception.AlreadyPaidException;
 import com.parboot.repository.PaymentRepository;
 import com.parboot.repository.ReservationRepository;
 
@@ -72,15 +73,15 @@ public class TossService {
 			//TossRequestVO 객체에 Toss server 로 전달할 데이터 삽입
 			TossRequestVO tossVO = new TossRequestVO();
 			
-			tossVO.setOrderNo(Long.toString(resEntity.getR_idx()));
+			tossVO.setOrderNo(Long.toString(resEntity.getR_idx())+System.nanoTime());
 			tossVO.setAmount(resEntity.getCarpoolEntity().getD_fee());
 			tossVO.setAmountTaxFree(0);
 			tossVO.setProductDesc("연차 카풀 서비스");
 			tossVO.setApiKey("sk_test_apikey1234567890");
 			tossVO.setAutoExecute(true);
-			tossVO.setResultCallback("https://localhost:8080/parclient/toss/success.html");
-			tossVO.setRetUrl("http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx);
-			tossVO.setRetCancelUrl("http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx);
+			tossVO.setResultCallback("https://localhost:8080/parclient/toss/success.html?r_idx="+r_idx); //결제 성공시 : 가맹점에서 autoexeccute=false 시에만 호출됨
+			tossVO.setRetUrl("http://localhost:8080/parclient/toss/success.html?r_idx="+r_idx); //결제 완료 시 페이지 
+			tossVO.setRetCancelUrl("http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx); //결제 실패 or 취소 
 			
 			System.out.println("toss pay 요청 04  "+tossVO.toString());
 			

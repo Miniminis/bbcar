@@ -180,7 +180,7 @@ public class CarpoolEntity {
 				+ d_endlat + "]";
 	}
 
-	@OneToMany(mappedBy = "carpoolEntity") //대상 entity 에서 관계로 설정된 변수
+	/*@OneToMany(mappedBy = "carpoolEntity") //대상 entity 에서 관계로 설정된 변수
 	private List<ReservationEntity> reservations = new ArrayList<ReservationEntity>();
 	
 	public List<ReservationEntity> getReservations() {
@@ -189,5 +189,5 @@ public class CarpoolEntity {
 	
 	public void setReservations(List<ReservationEntity> reservations) {
 		this.reservations = reservations;
-	}
+	}*/
 }
