@@ -49,10 +49,10 @@ $(document).ready(function(){
 					$('#etime').html(data.d_endtime+'/ '+data.d_endpoint);
 					
 					//탑승자 페이지 갱신 
-					/*setTimeout(function(){
+					setTimeout(function(){
 						//일정 시간 후 : 탑승자 후기 작성 페이지로 이동 
 						window.location.href='http://localhost:8080/parclient/reviewPassenger/writePassenger.html?payidx='+data.payidx; 
-					}, 5000);*/
+					}, 5000);
 					
 					//운전자 페이지 갱신 - 입금내역 표시 
 					//시간차 주의 : 탑승자 결제내용이 DB에 입력 되고 난 후에야 조회 가능함!

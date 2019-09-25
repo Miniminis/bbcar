@@ -6,7 +6,7 @@ $(document).ready(function(){
 function kakaoPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
-	var r_idx = 4;
+	var r_idx = 9;
 	
 	console.log('kakaopay 요청 01  '+r_idx);
 	
@@ -33,7 +33,7 @@ function kakaoPayProcess() {
 function tossPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
-	var r_idx = 11;
+	var r_idx = 9;
 	console.log('toss pay 요청 01  '+r_idx);
 	
 	$.ajax({
@@ -54,7 +54,7 @@ function tossPayProcess() {
 		},
 		error : function(e) {
 			console.log('error 발생 ' + e);
-			//window.location.href = "http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx;
+			window.location.href = "http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx;
 		}
 	})
 }
