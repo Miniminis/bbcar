@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script> 
+<!-- <script src="http://cdn.socket.io/socket.io-1.0.0.js"></script>  -->
 </head>
 <body>
 	<h1>toss pay test 입니다.</h1>
@@ -66,6 +68,13 @@
 		function naverPayStart() {
 			console.log('naver pay start');
 		}
+
+		$(document).ready(function(){
+			var socket = io('http://localhost:3000');
+			socket.on('alert', function(msg){
+				console.log(msg);
+			});
+		});		
 	</script>
 
 	<script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"
