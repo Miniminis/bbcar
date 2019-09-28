@@ -9,7 +9,6 @@ function kakaoPayProcess() {
 	console.log('toss 결제 성공 후 token 값 02: '+paramArray0[0]+' / '+paramArray0[1]);
 
 	var r_idx = paramArray0[1];
-	
 	console.log('kakaopay 요청 01  '+r_idx);
 	
 	$.ajax({

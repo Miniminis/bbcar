@@ -43,7 +43,7 @@
 <script src="<c:url value='/static/js/paymentDriver.js'/>"></script>
 
 <!-- 탑승자와 socket 통신을 위한 라이브러리 추가  -->
-<script src="/socket.io/socket.io.js"></script> <!-- 1) 소켓 io 연결 -->
+<script src="http://localhost:3000/socket.io/socket.io.js"></script> 
  
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"

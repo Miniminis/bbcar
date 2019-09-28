@@ -45,7 +45,6 @@
 <link rel="stylesheet" href="<c:url value='/static/css/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
 <script src="<c:url value='/static/js/payment.js'/>"></script>
-</head>
 
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">

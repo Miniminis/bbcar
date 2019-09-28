@@ -46,6 +46,9 @@
 <link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
 <script src="<c:url value='/static/js/kakao.js'/>"></script>
 
+<!-- socket io -->
+<script src="http://localhost:3000/socket.io/socket.io.js"></script> 
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
