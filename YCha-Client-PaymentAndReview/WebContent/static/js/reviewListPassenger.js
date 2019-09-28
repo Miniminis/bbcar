@@ -1,10 +1,7 @@
 $(document).ready(function(){
-	
-    //navbar load 
-    $("#navbar").load("../framePassenger/navbar.html");
-    
-    //현재 세션에서 p_idx 구하기
-    var p_idx = 1;
+
+	//현재 세션에서 p_idx 구하기
+    var p_idx = $('#p_idx').val();
 	
     //리뷰 리스트 로딩 
     reviewList(p_idx);

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,34 +26,34 @@
 	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
 	rel="stylesheet">
 
-<link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="../css/animate.css">
+<link rel="stylesheet" href="<c:url value='/css/open-iconic-bootstrap.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/animate.css'/>">
 
-<link rel="stylesheet" href="../css/owl.carousel.min.css">
-<link rel="stylesheet" href="../css/owl.theme.default.min.css">
-<link rel="stylesheet" href="../css/magnific-popup.css">
+<link rel="stylesheet" href="<c:url value='/css/owl.carousel.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/owl.theme.default.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/magnific-popup.css'/>">
 
-<link rel="stylesheet" href="../css/aos.css">
+<link rel="stylesheet" href="<c:url value='/css/aos.css'/>">
 
-<link rel="stylesheet" href="../css/ionicons.min.css">
+<link rel="stylesheet" href="<c:url value='/css/ionicons.min.css'/>">
 
-<link rel="stylesheet" href="../css/flaticon.css">
-<link rel="stylesheet" href="../css/icomoon.css">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="<c:url value='/css/flaticon.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/icomoon.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/style.css'/>">
 
 <!-- 커스텀 css/js 파일-->
-<link rel="stylesheet" href="../static/css/default.css">
-<link rel="stylesheet" href="../static/css/payment.css">
-<script src="../static/js/payfail.js"></script>
+<link rel="stylesheet" href="<c:url value='/static/css/default.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
+<script src="<c:url value='/static/js/payfail.js'/>"></script>
+
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
 
 	<!--navbar 시작-->
-	<div id="navbar"></div>
+	<%@ include file="/frame/passengerNavbar.jsp"%>
 	<!--navbar 끝 -->
-
 
 	<section class="ftco-intro" id="pay-fail-section">
 		<div id="pay-fail-div" class="container text-center">
@@ -71,18 +74,16 @@
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 
-	<script src="../js/popper.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/jquery.easing.1.3.js"></script>
-	<script src="../js/jquery.waypoints.min.js"></script>
-	<script src="../js/jquery.stellar.min.js"></script>
-	<script src="../js/owl.carousel.min.js"></script>
-	<script src="../js/jquery.magnific-popup.min.js"></script>
-	<script src="../js/aos.js"></script>
-	<script src="../js/jquery.animateNumber.min.js"></script>
-	<script src="../js/scrollax.min.js"></script>
-
-	<script src="../js/main.js"></script>
-
+	<script src="<c:url value='/js/popper.min.js'/>"></script>
+	<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
+	<script src="<c:url value='/js/jquery.easing.1.3.js'/>"></script>
+	<script src="<c:url value='/js/jquery.waypoints.min.js'/>"></script>
+	<script src="<c:url value='/js/jquery.stellar.min.js'/>"></script>
+	<script src="<c:url value='/js/owl.carousel.min.js'/>"></script>
+	<script src="<c:url value='/js/jquery.magnific-popup.min.js'/>"></script>
+	<script src="<c:url value='/js/aos.js'/>"></script>
+	<script src="<c:url value='/js/jquery.animateNumber.min.js'/>"></script>
+	<script src="<c:url value='/js/scrollax.min.js'/>"></script>
+	<script src="<c:url value='/js/main.js'/>"></script>
 </body>
 </html>

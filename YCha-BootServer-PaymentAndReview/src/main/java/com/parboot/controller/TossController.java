@@ -32,7 +32,7 @@ public class TossController {
 	@PostMapping("/r_idx/{r_idx}")
 	@CrossOrigin
 	public ResponseEntity<String> tossTest(HttpServletResponse rep, 
-											@PathVariable("r_idx") long r_idx) throws AlreadyPaidException {
+											@PathVariable("r_idx") long r_idx) {
 		
 		System.out.println("toss pay 요청 02  "+r_idx);
 		

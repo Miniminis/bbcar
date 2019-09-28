@@ -28,7 +28,7 @@ public class TossService {
 	@Autowired
 	private ReservationRepository resRepository;
 
-	public String tossProcess(long r_idx) throws AlreadyPaidException {
+	public String tossProcess(long r_idx) {
 		
 		System.out.println("toss pay 요청 03  "+r_idx);
 		
@@ -79,9 +79,9 @@ public class TossService {
 			tossVO.setProductDesc("연차 카풀 서비스");
 			tossVO.setApiKey("sk_test_apikey1234567890");
 			tossVO.setAutoExecute(true);
-			tossVO.setResultCallback("https://localhost:8080/parclient/toss/success.html?r_idx="+r_idx); //결제 성공시 : 가맹점에서 autoexeccute=false 시에만 호출됨
-			tossVO.setRetUrl("http://localhost:8080/parclient/toss/success.html?r_idx="+r_idx); //결제 완료 시 페이지 
-			tossVO.setRetCancelUrl("http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx); //결제 실패 or 취소 
+			tossVO.setResultCallback("https://localhost:8080/parclient/toss/success.jsp?r_idx="+r_idx); //결제 성공시 : 가맹점에서 autoexeccute=false 시에만 호출됨
+			tossVO.setRetUrl("http://localhost:8080/parclient/toss/success.jsp?r_idx="+r_idx); //결제 완료 시 페이지 
+			tossVO.setRetCancelUrl("http://localhost:8080/parclient/kakao/fail.jsp?r_idx="+r_idx); //결제 실패 or 취소 
 			
 			System.out.println("toss pay 요청 04  "+tossVO.toString());
 			

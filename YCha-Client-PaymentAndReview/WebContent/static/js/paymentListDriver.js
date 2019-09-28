@@ -1,9 +1,7 @@
 $(document).ready(function(){
-    $("#navbar").load("../frameDriver/navbar.html");
     
-    //세션에서 현재 사용자의 p_idx 값 가져오기 
-    var d_idx = 2;
-    
+    //세션에서 현재 사용자의 d_idx 값 가져오기 
+    var d_idx = $('#d_idx').val();
     console.log('입금리스트 시작 01 '+d_idx);
     
     //결제 리스트 출력 
@@ -11,7 +9,7 @@ $(document).ready(function(){
     	url : 'http://localhost:8080/par/payment/driver/'+d_idx,
     	type: 'GET',
     	success : function(data) {
-    		console.log('입금 리스트 출력 05 '+data);
+    		console.log('입금 리스트 출력 05 ', data);
     		
     		var output = '';
     		
@@ -40,7 +38,7 @@ $(document).ready(function(){
     		$('#driverDepositList').html(output);
     	},
     	error : function(e) {
-    		console.log(e);
+    		console.log('운전자 리뷰 리스트 출력 실패', e);
     	}
     })
     

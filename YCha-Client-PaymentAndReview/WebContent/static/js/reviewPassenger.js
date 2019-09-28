@@ -1,13 +1,4 @@
 $(document).ready(function(){
-
-    //navbar load 
-    $("#navbar").load("../framePassenger/navbar.html");
-    
-    //현재 세션에서 p_idx, nickname 값 구해서 input 에 넣어주기 
-    var p_idx = 1;
-    var nickname='익명의 탑승자';
-	$('#p_idx').val(p_idx);
-	$('#nickname').val(nickname);
 	
 	//결제 완료 페이지에서 넘겨준 r_idx 이용해서 서버단에서 payidx, p_idx, d_idx 구하기 
 	//--> 세션의 p_idx 와 결제 테이블의 p_idx 가 일치하는지 체크 필요 
@@ -18,7 +9,6 @@ $(document).ready(function(){
 	console.log('리뷰 등록 02 payidx 02 '+paramArray[0]+' / '+paramArray[1]);
 	
 	$('#payidx').val(paramArray[1]);
-	
 })
 
 /* 후기 등록 
@@ -28,8 +18,6 @@ $(document).ready(function(){
  * */
 //후기 form 제출 + DB 저장 + 성공시 redirect page 지정 
 function reviewSubmit(){
-	
-	//session 에서 p_idx 값 가져오기 : 현재는 임의의 값 1 
 	$.ajax({
 		url : 'http://localhost:8080/par/review/passenger',
 		type: 'post',
@@ -44,11 +32,15 @@ function reviewSubmit(){
 			//alert(data);
 			if(data>0) {
 				alert(data+'개의 소중한 리뷰가 등록되었습니다!');
-				window.location.href='http://localhost:8080/parclient/passengerMain.html';
+				window.location.href='http://localhost:8080/parclient/passengerMain.jsp';
+			} else {
+				alert('리뷰 입력에 실패하였습니다!');
+				window.location.href='http://localhost:8080/parclient/passengerMain.jsp';
 			}
 		}, 
 		error : function(e) {
-			console.log('리뷰 입력 실패 '+e);
+			alert('리뷰 입력에 실패하였습니다!');
+			window.location.href='http://localhost:8080/parclient/passengerMain.jsp';
 		}
 	})
 }

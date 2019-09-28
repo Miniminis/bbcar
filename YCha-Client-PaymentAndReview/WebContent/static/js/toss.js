@@ -1,8 +1,5 @@
 $(document).ready(function(){
-    
-    //navbar load 
-    $("#navbar").load("../framePassenger/navbar.html");
-    
+
 	//url 처음부터 ?까지 삭제 
 	var paramUrl = document.location.search.substring('1'); 
 	var params = paramUrl.split('&');  //&을 기준으로 분리 
@@ -51,17 +48,16 @@ $(document).ready(function(){
 					//탑승자 페이지 갱신 
 					setTimeout(function(){
 						//일정 시간 후 : 탑승자 후기 작성 페이지로 이동 
-						window.location.href='http://localhost:8080/parclient/reviewPassenger/writePassenger.html?payidx='+data.payidx; 
+						window.location.href='http://localhost:8080/parclient/review/passengerWrite.jsp?payidx='+data.payidx; 
 					}, 5000);
 					
 					//운전자 페이지 갱신 - 입금내역 표시 
 					//시간차 주의 : 탑승자 결제내용이 DB에 입력 되고 난 후에야 조회 가능함!
 					//depositDetail(reservationIdx);
-					
 			}, 
 			error : function(e) {
 				console.log('결제내역07 '+e);
 			}
-		}) //ajax end
-	} //if end
-}) //ready end
+		}) 
+	} 
+}) 

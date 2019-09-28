@@ -1,8 +1,3 @@
-$(document).ready(function(){
-    //navbar load 
-    $("#navbar").load("../framePassenger/navbar.html");
-})
-
 function reChoosePayMethod() {
 	//url 로부터 token 값 가져오기  
 	var params = document.location.href.split('?'); 

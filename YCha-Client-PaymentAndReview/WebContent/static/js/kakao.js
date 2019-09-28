@@ -1,8 +1,5 @@
 $(document).ready(function(){
     
-    //navbar load 
-    $("#navbar").load("../framePassenger/navbar.html");
-    
 	//url 로부터 token 값 가져오기  
 	var params = document.location.href.split('?'); 
 	console.log('kakao 결제 성공 후 token 값 01: '+params[1]);
@@ -22,7 +19,7 @@ $(document).ready(function(){
 		}, 
 		error : function(e) {
 			console.log('결제 승인 실패함 ');
-			window.location.href = "http://localhost:8080/parclient/kakao/fail.html";
+			window.location.href = "http://localhost:8080/parclient/kakao/fail.jsp?r_idx="+data.r_idx;
 		}
 	})
 })
@@ -30,7 +27,7 @@ $(document).ready(function(){
 //1. 결제 DB에 저장 
 //2. 결제 내역 보여주기 위해 따로 매서드로 페이지 구성 처리 
 function paymentDetail(data){	
-	console.log('결제 내역 시이작 01 '+data.paymethod);
+	console.log('결제 내역 시이작 01', data);
 	
 	$.ajax({
 		url : "http://localhost:8080/par/payment/passenger",
@@ -45,7 +42,7 @@ function paymentDetail(data){
 		//json.stringify 이용하여 json 타입으로 한꺼번에 보내니 문제 없이 커맨드 객체에 binding 됨 
 		contentType:'application/json;charset=UTF-8;',
 		success : function(data) {
-				console.log('결제내역08 '+data);
+				console.log('결제내역08 ', data);
 				
 				/* 결제 완료 페이지에 필요한 내용  
 				 * 1. 날짜 
@@ -71,7 +68,7 @@ function paymentDetail(data){
 				//탑승자 페이지 갱신 
 				setTimeout(function(){
 					//일정 시간 후 : 탑승자 후기 작성 페이지로 이동 
-					window.location.href='http://localhost:8080/parclient/reviewPassenger/writePassenger.html?payidx='+data.payidx; 
+					window.location.href='http://localhost:8080/parclient/review/passengerWrite.jsp?payidx='+data.payidx
 				}, 5000);
 				
 				//운전자 페이지 갱신 - 입금내역 표시 
@@ -81,6 +78,7 @@ function paymentDetail(data){
 		}, 
 		error : function(e) {
 			console.log('결제내역07 '+e);
+			window.location.href = "http://localhost:8080/parclient/kakao/fail.jsp?r_idx="+data.r_idx;
 		}
 	})	
 }

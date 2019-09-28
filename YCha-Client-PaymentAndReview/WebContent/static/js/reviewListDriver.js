@@ -1,8 +1,5 @@
 $(document).ready(function(){
 	
-    //navbar load 
-    $("#navbar").load("../frameDriver/navbar.html");
-    
     //현재 세션에서 p_idx 구하기
     var d_idx = 2;
 	

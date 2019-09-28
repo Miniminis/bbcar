@@ -1,7 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>연차 - 탑승자 후기리스트</title>
+<title>연차 - 운전자 후기리스트</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,42 +22,40 @@
 	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
 	rel="stylesheet">
 
-<link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="../css/animate.css">
-
-<link rel="stylesheet" href="../css/owl.carousel.min.css">
-<link rel="stylesheet" href="../css/owl.theme.default.min.css">
-<link rel="stylesheet" href="../css/magnific-popup.css">
-
-<link rel="stylesheet" href="../css/aos.css">
-
-<link rel="stylesheet" href="../css/ionicons.min.css">
-
-<link rel="stylesheet" href="../css/flaticon.css">
-<link rel="stylesheet" href="../css/icomoon.css">
-<link rel="stylesheet" href="../css/style.css">
-
+<link rel="stylesheet" href="<c:url value='/css/open-iconic-bootstrap.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/animate.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/owl.carousel.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/owl.theme.default.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/magnific-popup.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/aos.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/ionicons.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/flaticon.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/icomoon.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/style.css'/>">
 
 <!-- 커스텀 css/js 파일-->
-<link rel="stylesheet" href="../static/css/default.css">
-<link rel="stylesheet" href="../static/css/payment.css">
-<script src="../static/js/reviewListPassenger.js"></script>
+<link rel="stylesheet" href="<c:url value='/static/css/default.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
+<script src="<c:url value='/static/js/reviewListDriver.js'/>"></script>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
 
 	<!--navbar 시작-->
-	<div id="navbar"></div>
+	<%@ include file="/frame/driverNavbar.jsp"%>
 	<!--navbar 끝 -->
+	
+	<!--  ${sessionScope.loginInfo.d_idx}  -->
+	<input type="hidden" name="d_idx" id="d_idx" value="2">		    		    
 
 	<div class="container">
-		<section id="reviewByDrivers" class="ftco-intro">
+		<section id="reviewByPassenger" class="ftco-intro">
 			<div class="container">
-			<h2>운전자들이 작성한 리뷰 리스트</h2>
+			<h2>탑승자들이 작성한 리뷰 리스트</h2>
 			<br>
-				<div id="reviewListByDrivers" class="row">
-					등록된 후기가 없습니다!
+				<div id="reviewListByPassengers" class="row">
+					<!-- 후기 리스트 출력  -->
 				</div>
 			</div>
 		</section>
@@ -64,7 +65,7 @@
 			<h2>내가 작성한 후기 리스트</h2>
 			<br>
 				<div id="reviewWrittenByMe" class="row">
-					등록된 후기가 없습니다!
+					<!-- 내가 작성한 리스트 출력  -->
 				</div>
 			</div>
 		</section>
@@ -105,7 +106,7 @@
 							<textarea class="form-control" id="eContent"></textarea>
 						</div>
 						<!-- 5. 탑승자 세션 번호 -->
-						<input type="hidden" id="eP_idx">
+						<input type="hidden" id="eD_idx">
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -127,20 +128,17 @@
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 
-	<script src="../js/popper.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/jquery.easing.1.3.js"></script>
-	<script src="../js/jquery.waypoints.min.js"></script>
-	<script src="../js/jquery.stellar.min.js"></script>
-	<script src="../js/owl.carousel.min.js"></script>
-	<script src="../js/jquery.magnific-popup.min.js"></script>
-	<script src="../js/aos.js"></script>
-	<script src="../js/jquery.animateNumber.min.js"></script>
-	<script src="../js/scrollax.min.js"></script>
-
-	<script src="../js/main.js"></script>
-	
-	
+	<script src="<c:url value='/js/popper.min.js'/>"></script>
+	<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
+	<script src="<c:url value='/js/jquery.easing.1.3.js'/>"></script>
+	<script src="<c:url value='/js/jquery.waypoints.min.js'/>"></script>
+	<script src="<c:url value='/js/jquery.stellar.min.js'/>"></script>
+	<script src="<c:url value='/js/owl.carousel.min.js'/>"></script>
+	<script src="<c:url value='/js/jquery.magnific-popup.min.js'/>"></script>
+	<script src="<c:url value='/js/aos.js'/>"></script>
+	<script src="<c:url value='/js/jquery.animateNumber.min.js'/>"></script>
+	<script src="<c:url value='/js/scrollax.min.js'/>"></script>
+	<script src="<c:url value='/js/main.js'/>"></script>	
 
 </body>
 </html>

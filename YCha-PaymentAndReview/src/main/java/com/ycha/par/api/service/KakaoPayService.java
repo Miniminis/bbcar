@@ -20,7 +20,6 @@ import com.ycha.par.domain.KakaoPayReady;
 import com.ycha.par.domain.KakaoPayResult;
 import com.ycha.par.domain.Payment;
 import com.ycha.par.domain.ReservationBasicInfo;
-import com.ycha.par.exception.AlreadyPaidException;
 import com.ycha.par.passenger.dao.PassengerPaymentDao;
 
 @Service("kakaoPayService")
@@ -41,18 +40,17 @@ public class KakaoPayService {
 	private KakaoPayReady kakaoPayReady; 
 	
 	//카카오 결제 결과 
-	private KakaoPayResult kakaoPayResult;
-	
+	private KakaoPayResult kakaoPayResult;	
 	
 	//결제 요청 : 필요한 매개변수들 headers & body 에 담아 post 로 요청 
-	public String kakaoPayReady(int r_idx) throws AlreadyPaidException {
+	public String kakaoPayReady(int r_idx) {		
 		//0. dao 정의 
 		dao = template.getMapper(PassengerPaymentDao.class);
 		
 		//1. 결제 요청 시작 전, 이미 결제된 건이 있는지 검사 
 		Payment payment = dao.selectPaymentByR_idx(r_idx);
 		if(payment != null) {
-			throw new AlreadyPaidException("이미 결제된 건입니다.");
+			return "이미 결제된 건입니다!";
 		}
 		/* 결제 요청을 위해 필요한 데이터 
 		 *    private int r_idx;
@@ -84,9 +82,9 @@ public class KakaoPayService {
 		params.add("quantity", "1"); //건당 결제이므로 1
 		params.add("total_amount", rsvBasicInfo.getD_fee()); //이용요금 
 		params.add("tax_free_amount", "0"); //
-		params.add("approval_url", "http://localhost:8080/parclient/kakao/success.html"); //결제 성공시 url 
-		params.add("cancel_url", "http://localhost:8080/par/payment/kakao/fail.html?r_idx="+rsvBasicInfo.getR_idx()); //결제 취소시 url 
-		params.add("fail_url", "http://localhost:8080/parclient/kakao/fail.html?r_idx="+rsvBasicInfo.getR_idx()); //결제 실패시 url 
+		params.add("approval_url", "http://localhost:8080/parclient/kakao/success.jsp"); //결제 성공시 url 
+		params.add("cancel_url", "http://localhost:8080/par/payment/kakao/fail.jsp?r_idx="+rsvBasicInfo.getR_idx()); //결제 취소시 url 
+		params.add("fail_url", "http://localhost:8080/parclient/kakao/fail.jsp?r_idx="+rsvBasicInfo.getR_idx()); //결제 실패시 url 
 		
 		System.out.println("kakao pay 요청 05 "+params);
 		
@@ -101,9 +99,10 @@ public class KakaoPayService {
 			System.out.println("kakao pay 요청 07 "+kakaoPayReady);
 			System.out.println("kakao pay 요청 08 "+kakaoPayReady.getNext_redirect_pc_url());
 
-			//결제 요청 성공시 반환 주소 : https://mockup-pg-web.kakao.com/v1/c6c8aa28d6788a586d97f4caae341ac31846ec74cb72eb22a6e07f223fe499c5/info
+			//결제 요청 성공시 반환 주소 
+			//: https://mockup-pg-web.kakao.com/v1/c6c8aa28d6788a586d97f4caae341ac31846ec74cb72eb22a6e07f223fe499c5/info
 			return kakaoPayReady.getNext_redirect_pc_url();
-
+			
 		} catch (RestClientException e) {
 			e.printStackTrace();
 		} catch (URISyntaxException e) {
@@ -111,7 +110,7 @@ public class KakaoPayService {
 		}
 		
 		//결제 요청 단계에서 실패 시 반환 주소 
-		return "http://localhost:8080/parclient/kakao/fail.html?r_idx="+rsvBasicInfo.getR_idx();
+		return "http://localhost:8080/parclient/kakao/fail.jsp?r_idx="+rsvBasicInfo.getR_idx();
 	}
 	
 	//결제 승인 : 결제된 결과를 보여준다. 

@@ -1,12 +1,14 @@
-$(document).ready(function(){
-    $("#navbar").load("framePassenger/navbar.html");
-});
-
 //카카오 결제 요청 
 function kakaoPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
-	var r_idx = 9;
+	//url 처음부터 ?까지 삭제 
+	var paramUrl = document.location.search.substring('1'); 
+	
+	var paramArray0 = paramUrl[0].split('=');
+	console.log('toss 결제 성공 후 token 값 02: '+paramArray0[0]+' / '+paramArray0[1]);
+
+	var r_idx = paramArray0[1];
 	
 	console.log('kakaopay 요청 01  '+r_idx);
 	
@@ -15,7 +17,7 @@ function kakaoPayProcess() {
         type: 'POST',
 		dataType : "text",
 		success : function(data) {
-			console.log('kakao 결제 성공  - 성공페이지로 이동'+data);
+			console.log('kakao 결제 성공  - 성공페이지로 이동', data);
 			window.location.href = data; //성공할 경우 클라이언트 성공 페이지로 이동 
 			//ajax 로 요청했는데 controller 단에서 redirect 할 경우, cors origin 에러가 발생하게 된다. 
 			//요청하는 위치가 달라지기 때문 : client  vs  server 
@@ -23,9 +25,8 @@ function kakaoPayProcess() {
 		},
 		error : function(data) {
 			console.log('kakao 결제 실패 - 실패 페이지 이동 ');
-			window.location.href = "http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx;
+			window.location.href = "http://localhost:8080/parclient/kakao/fail.jsp?r_idx="+r_idx;
 		}
-		
 	})
 }
 
@@ -33,7 +34,13 @@ function kakaoPayProcess() {
 function tossPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
-	var r_idx = 9;
+	//url 처음부터 ?까지 삭제 
+	var paramUrl = document.location.search.substring('1'); 
+	
+	var paramArray0 = paramUrl[0].split('=');
+	console.log('toss 결제 성공 후 token 값 02: '+paramArray0[0]+' / '+paramArray0[1]);
+
+	var r_idx = paramArray0[1];
 	console.log('toss pay 요청 01  '+r_idx);
 	
 	$.ajax({
@@ -54,7 +61,7 @@ function tossPayProcess() {
 		},
 		error : function(e) {
 			console.log('error 발생 ' + e);
-			window.location.href = "http://localhost:8080/parclient/kakao/fail.html?r_idx="+r_idx;
+			window.location.href = "http://localhost:8080/parclient/kakao/fail.jsp?r_idx="+r_idx;
 		}
 	})
 }

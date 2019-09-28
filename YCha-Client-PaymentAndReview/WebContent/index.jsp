@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,15 +42,16 @@
 <link rel="stylesheet" href="css/style.css">
 
 <!-- 커스텀 css/js 파일-->
-<link rel="stylesheet" href="static/css/default.css">
-<link rel="stylesheet" href="static/css/payment.css">
-<script src="static/js/payment.js"></script>
+<link rel="stylesheet" href="<c:url value='/static/css/default.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
+<script src="<c:url value='/static/js/payment.js'/>"></script>
 </head>
+
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
-
+	
 	<!--navbar 시작-->
-	<div id="navbar"></div>
+	<%@ include file="/frame/passengerNavbar.jsp"%>
 	<!--navbar 끝 -->
 
 	<section class="ftco-intro" id="payment-choice-section">
@@ -59,7 +63,7 @@
 					<br>
 					<div class="container">
 						<div class="row">
-							<!-- 세션에서 사용자의 idx 받아서 onclick function 에 넘겨주기 -->
+							<!-- 세션에서 사용자의 idx 받아서 onclick function 에 넘겨주기  ${sessionScope.loginInfo.p_idx}-->
 							<div class="col-md-3">
 								<img alt="kakaopay" onclick="kakaoPayProcess()"
 									class="rounded-lg payimg" src="images/pay-kakao.png">

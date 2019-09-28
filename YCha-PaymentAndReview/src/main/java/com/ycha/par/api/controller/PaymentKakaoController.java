@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ycha.par.api.service.KakaoPayService;
-import com.ycha.par.exception.AlreadyPaidException;
 
 @RestController
 @RequestMapping("/payment/kakao")
@@ -28,7 +27,7 @@ public class PaymentKakaoController {
 	//kakao pay 결제 요청을 위한 post  
 	@PostMapping("/r_idx/{r_idx}") 
 	@CrossOrigin
-	public String kakaoPay(@PathVariable("r_idx") int r_idx) throws AlreadyPaidException {
+	public String kakaoPay(@PathVariable("r_idx") int r_idx) {
 		
 		System.out.println("kakao pay 요청 02 "+r_idx);
 		
