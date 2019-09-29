@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +8,9 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- socket io -->
+<script src="http://localhost:3000/socket.io/socket.io.js"></script> 
 
 <!-- bootstrap cdn 적용  -->
 <link rel="stylesheet"
@@ -39,8 +41,8 @@
 <link rel="stylesheet" href="<c:url value='/css/style.css'/>">
 
 <!-- 커스텀 css/js 파일-->
+<link rel="stylesheet" href="<c:url value='/static/css/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/css/review.css'/>">
 <script src="<c:url value='/static/js/toss.js'/>"></script>
 
 </head>

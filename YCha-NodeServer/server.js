@@ -44,8 +44,8 @@ io.on('connection', function(socket){
         console.log('r_idx 로 결제 룸 조인 ', r_idx);
                 
         payRoomIdx = payroom.indexOf('payroom'+r_idx);
-        if(payidx != null  && payRoomIdx == -1) { //만약 r_idx 번 방이 존재하지 않다면,
-            room.push('payroom'+r_idx); //신규 방 생성 
+        if(r_idx != null  && payRoomIdx == -1) { //만약 r_idx 번 방이 존재하지 않다면,
+            payroom.push('payroom'+r_idx); //신규 방 생성 
             console.log('신규 결제 방 생성 : '+r_idx);
             console.log('현재 결제 방 배열 : ', payroom);
         }
@@ -69,4 +69,4 @@ io.on('connection', function(socket){
 });
 http.listen(3000, function(){
     console.log('연차 노드 서버 연결 시작');
-})
+});

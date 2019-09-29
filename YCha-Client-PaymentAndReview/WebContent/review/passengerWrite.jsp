@@ -88,7 +88,7 @@
 			<!-- 후기 : 익명의 사용자 닉네임, 후기내용   -->
 			<div class="form-group">
 			    <label for="nickname">작성자</label> <!-- 현재 세션에서 p_idx, nickname 값 구해서 input 에 넣어주기  -->
-			    <input type="text" class="form-control" id="nickname" value="익명의탑승자" aria-describedby="emailHelp" readonly> 
+			    <input type="text" class="form-control" id="nickname" value="익명의 탑승자" aria-describedby="emailHelp" readonly> 
 			    <small id="textHelp" class="form-text text-muted">솔직한 후기를 위해 작성자의 이름은 임의의 닉네임으로 표시 됩니다.</small>
 		    </div>
 		    <div class="form-group">

@@ -9,6 +9,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<!-- 탑승자와 socket 통신을 위한 라이브러리 추가  -->
+<script src="http://localhost:3000/socket.io/socket.io.js"></script> 
+
 <!-- bootstrap cdn 적용  -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -41,9 +44,6 @@
 <link rel="stylesheet" href="<c:url value='/static/css/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
 <script src="<c:url value='/static/js/paymentDriver.js'/>"></script>
-
-<!-- 탑승자와 socket 통신을 위한 라이브러리 추가  -->
-<script src="http://localhost:3000/socket.io/socket.io.js"></script> 
  
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"

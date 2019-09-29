@@ -3,12 +3,7 @@ function kakaoPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
 	//url 처음부터 ?까지 삭제 
-	var paramUrl = document.location.search.substring('1'); 
-	
-	var paramArray0 = paramUrl[0].split('=');
-	console.log('toss 결제 성공 후 token 값 02: '+paramArray0[0]+' / '+paramArray0[1]);
-
-	var r_idx = paramArray0[1];
+	var r_idx = document.location.search.substring('1').split('=')[1]; 	
 	console.log('kakaopay 요청 01  '+r_idx);
 	
 	$.ajax({
@@ -34,13 +29,8 @@ function tossPayProcess() {
 	
 	//운행 중 화면으로부터 넘어올 때 r_idx 받아오기
 	//url 처음부터 ?까지 삭제 
-	var paramUrl = document.location.search.substring('1'); 
-	
-	var paramArray0 = paramUrl[0].split('=');
-	console.log('toss 결제 성공 후 token 값 02: '+paramArray0[0]+' / '+paramArray0[1]);
-
-	var r_idx = paramArray0[1];
-	console.log('toss pay 요청 01  '+r_idx);
+	var r_idx = document.location.search.substring('1').split('=')[1]; 	
+	console.log('tosspay 요청 01  '+r_idx);
 	
 	$.ajax({
 		url : 'http://localhost:8090/parboot/payment/toss/r_idx/'+r_idx,
@@ -59,7 +49,7 @@ function tossPayProcess() {
 			//따라서 replace 로 고쳐서 url 아예 바꿔줌 
 		},
 		error : function(e) {
-			console.log('error 발생 ' + e);
+			console.log('결제 요청 실패 ' + e);
 			window.location.href = "http://localhost:8080/parclient/kakao/fail.jsp?r_idx="+r_idx;
 		}
 	})

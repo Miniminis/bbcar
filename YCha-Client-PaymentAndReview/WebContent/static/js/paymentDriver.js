@@ -4,7 +4,8 @@
  * 1. 사용자 페이지와 통신 - 입금 내역 데이터 받아오기 (json)
  * 2. 해당 내역 출력 
  * */
-var socket = io('http://localhost:3000'); 
+var socket = io('http://localhost:3000');
+
 var r_idx = document.location.search.substring('1').split('=')[1];
 console.log('r_idx 확인 : ', r_idx);  
 
@@ -22,7 +23,7 @@ $(document).ready(function(){
   socket.on('receive pay result', 
     function(payidx, paydate, d_commute, d_distance, d_fee, paymethod, 
       d_starttime, d_startpoint, d_endtime, d_endpoint){ 
-    console.log('driver 페이지야, 값들 들어오니?', startpoint);  
+    console.log('driver 페이지야, 값들 들어오니?', d_startpoint);  
     
     var result = '';
     result += '<h1>입금 확인</h1><br>';

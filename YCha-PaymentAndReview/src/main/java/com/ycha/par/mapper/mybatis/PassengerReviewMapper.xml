@@ -9,10 +9,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- insert 전 d_idx 조회  -->
 	<select id="selectD_idx" resultType="int">
-		select d_idx 
-		from PAYMENT 
-		join RESERVATION using (r_idx) 
-		join D_CARPOOL using (dr_idx) where payidx=#{payidx};
+		select d.d_idx 
+		from PAYMENT p
+		join RESERVATION r using (r_idx) 
+		join D_CARPOOL d using (dr_idx) 
+		where p.payidx=#{payidx};
 	</select>
 
 	<!-- 등록 전, 기존 같은 payidx+작성자 존재 여부 체크  -->
@@ -28,12 +29,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 탑승자 review list -->
 	<select id="selectListByPassenger" resultType="com.ycha.par.domain.ReviewListInfo">
-		select rv_idx, p_idx, d_idx, payidx, writer, content, star, 
-		PASSENGER.nickname as p_nickname, DRIVER.nickname as d_nickname 
-		from REVIEW 
-		join PASSENGER using(p_idx) 
-		join DRIVER using(d_idx) 
-		where p_idx=#{p_idx};
+		select r.rv_idx, p.p_idx, d.d_idx, 
+		r.payidx, r.writer, r.content, r.star, 
+		p.nickname as p_nickname, d.nickname as d_nickname 
+		from REVIEW r
+		join PASSENGER p using(p_idx) 
+		join DRIVER d using(d_idx) 
+		where p.p_idx=#{p_idx};
 	</select>
 	
 	<!-- 수정할/삭제할 리뷰 존재 확인 -->

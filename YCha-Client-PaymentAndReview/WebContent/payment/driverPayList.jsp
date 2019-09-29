@@ -39,7 +39,7 @@
 <!-- 커스텀 css/js 파일-->
 <link rel="stylesheet" href="<c:url value='/static/css/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
-<script src="<c:url value='/static/js/paymentDriver.js'/>"></script>
+<script src="<c:url value='/static/js/paymentListDriver.js'/>"></script>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
@@ -48,6 +48,9 @@
 	<!--navbar 시작-->
 	<%@ include file="/frame/driverNavbar.jsp"%>
 	<!--navbar 끝 -->
+	
+	<!-- session에서 현재 운전자의 d_idx 넣어주기 -->
+	<input type="hidden" name="d_idx" id="d_idx" value="19">		    		    
 
 	<section class="ftco-intro">
 		<div class="container">

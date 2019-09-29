@@ -1,7 +1,8 @@
 $(document).ready(function(){
 	
-    //현재 세션에서 p_idx 구하기
-    var d_idx = 2;
+	//세션에서 현재 사용자의 d_idx 값 가져오기 
+    var d_idx = $('#d_idx').val();
+    console.log('리뷰리스트 시작 01 '+d_idx);
 	
     //리뷰 리스트 로딩 
     reviewListByPassengers(d_idx);

@@ -75,7 +75,7 @@
 	</div>
 
 	<script src="<c:url value='/js/popper.min.js'/>"></script>
-	<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
+	<%-- <script src="<c:url value='/js/bootstrap.min.js'/>"></script> --%>
 	<script src="<c:url value='/js/jquery.easing.1.3.js'/>"></script>
 	<script src="<c:url value='/js/jquery.waypoints.min.js'/>"></script>
 	<script src="<c:url value='/js/jquery.stellar.min.js'/>"></script>

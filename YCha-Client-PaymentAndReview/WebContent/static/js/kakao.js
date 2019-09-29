@@ -29,6 +29,11 @@ function paymentDetail(data){
 	
 	//r_idx 방 조인 : 유니크 키인 r_idx 이용 
 	socket.emit('join payroom', r_idx);
+	
+	//listener : payroom result
+	socket.on('payroom result', function(msg){
+		console.log(msg);
+	});
 
 	$.ajax({
 		url : "http://localhost:8080/par/payment/passenger",
@@ -66,10 +71,7 @@ function paymentDetail(data){
 				$('#stime').html(data.d_starttime +'/ '+data.d_startpoint);
 				$('#etime').html(data.d_endtime+'/ '+data.d_endpoint);
 
-				//listener : payroom result
-				socket.on('payroom result', function(msg){
-					console.log(msg);
-				});
+				
 
 				//소켓서버 걸쳐 운전자 페이지로 데이터 전송
 				socket.emit('send payinfo', 
@@ -94,7 +96,7 @@ function paymentDetail(data){
 					setTimeout(function(){
 						//일정 시간 후 : 탑승자 후기 작성 페이지로 이동 
 						window.location.href='http://localhost:8080/parclient/review/passengerWrite.jsp?payidx='+data.payidx;
-					}, 5000);
+					}, 10000);
 				});
 		}, 
 		error : function(e) {
