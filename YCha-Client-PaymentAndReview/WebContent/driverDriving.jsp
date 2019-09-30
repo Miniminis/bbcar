@@ -9,7 +9,14 @@
 <script src="http://localhost:3000/socket.io/socket.io.js"></script> 
 </head>
 <body>
-	<h1>운전자 화면 : 카풀 운행 중</h1>
+	<div class="container">
+		<div id="driving">
+			<h1>YCAR</h1>
+			<img src="images/logo_yeoncha.png" id="ycarLogo">
+			<h5>운전자분, 카풀 운행이 시작되었습니다.</h5>
+			<h5>탑승자분이 버튼을 누르면 운행이 종료됩니다!</h5><br>
+		</div>
+	</div>
 	<!-- param : 1) ${loginInfo.d_idx}"  2) 현재  r_idx -->
 	<script>
 		$(document).ready(function(){
