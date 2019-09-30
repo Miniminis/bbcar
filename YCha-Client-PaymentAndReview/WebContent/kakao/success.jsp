@@ -78,7 +78,8 @@
 						<td id="commuteType"></td>
 					</tr>
 					<tr>
-						<th scope="row">총 운행거리/총 운행시간</th>
+						<!-- <th scope="row">총 운행거리/총 운행시간</th> -->
+						<th scope="row">총 운행거리</th>
 						<td id="distance"></td>
 					</tr>
 					<tr>

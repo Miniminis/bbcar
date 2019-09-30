@@ -45,7 +45,8 @@ $(document).ready(function(){
 					//탑승자 - 결제 내역 화면 표시 
 					$('#date').html(data.paydate);
 					$('#commuteType').html(data.d_commute);
-					$('#distance').html(data.d_distance+'km / '+(data.d_endtime-data.d_starttime)+'분');
+//					$('#distance').html(data.d_distance+'km / '+(data.d_endtime-data.d_starttime)+'분');
+					$('#distance').html(data.d_distance+' km');
 					$('#amount').html(data.d_fee+'원');
 					$('#method').html(data.paymethod);
 					$('#stime').html(data.d_starttime +'/ '+data.d_startpoint);

@@ -32,7 +32,8 @@ $(document).ready(function(){
     result += '<tbody>';
     result += '<tr><th scope="row">날짜</th><td id="d_date">'+paydate+'</td></tr>';
     result += '<tr><th scope="row">출근/퇴근</th><td id="commuteType">'+d_commute+'</td></tr>';
-    result += '<tr><th scope="row">총 운행거리/총 운행시간</th><td id="d_distance">'+d_distance+'</td></tr>';
+//    result += '<tr><th scope="row">총 운행거리/총 운행시간</th><td id="d_distance">'+d_distance+'</td></tr>';
+    result += '<tr><th scope="row">총 운행거리</th><td id="d_distance">'+d_distance+'</td></tr>';
     result += '<tr><th scope="row">총 금액</th><td id="d_amount">'+d_fee+'</td></tr>';
     result += '<tr><th scope="row">결제수단</th><td id="d_method">'+paymethod+'</td></tr>';
     result += '<tr><th scope="row">출발시간/출발지</th><td id="d_stime">'+d_starttime+' / '+d_startpoint+'</td></tr>';
