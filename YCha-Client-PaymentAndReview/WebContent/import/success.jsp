@@ -4,10 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>연차 - 운전자 입금내역</title>
+<title>연차 - 일반카드 결제성공</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- socket io -->
+<script src="http://localhost:3000/socket.io/socket.io.js"></script> 
 
 <!-- bootstrap cdn 적용  -->
 <link rel="stylesheet"
@@ -25,6 +28,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
 	rel="stylesheet">
+
 <link rel="stylesheet" href="<c:url value='/css/open-iconic-bootstrap.min.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/animate.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/owl.carousel.min.css'/>">
@@ -39,26 +43,58 @@
 <!-- 커스텀 css/js 파일-->
 <link rel="stylesheet" href="<c:url value='/static/css/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
-<script src="<c:url value='/static/js/paymentListDriver.js'/>"></script>
+<script src="<c:url value='/static/js/import.js'/>"></script>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
 
 	<!--navbar 시작-->
-	<%@ include file="/frame/driverNavbar.jsp"%>
+	<%@ include file="/frame/passengerNavbar.jsp"%>
 	<!--navbar 끝 -->
-	
-	<!-- session에서 현재 운전자의 d_idx 넣어주기 -->
-	<input type="hidden" name="d_idx" id="d_idx" value="2">		    		    
 
-	<section class="ftco-intro">
-		<div class="container">
-		<h2>입금 리스트</h2>
-		<br>
-		    <div id="driverDepositList" class="row">
-              <!-- 입금 리스트 출력  -->
-            </div>
+	<section class="ftco-intro" id="pay-success-section">
+		<div id="pay-success-div" class="container text-center">
+			<h2>결제 내역</h2>
+			<br>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">항목</th>
+						<th scope="col">내용</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">날짜</th>
+						<td id="date"></td>
+					</tr>
+					<tr>
+						<th scope="row">출근/퇴근</th>
+						<td id="commuteType"></td>
+					</tr>
+					<tr>
+						<th scope="row">총 운행거리/총 운행시간</th>
+						<td id="distance"></td>
+					</tr>
+					<tr>
+						<th scope="row">총 금액</th>
+						<td id="amount"></td>
+					</tr>
+					<tr>
+						<th scope="row">결제수단</th>
+						<td id="method"></td>
+					</tr>
+					<tr>
+						<th scope="row">출발시간/출발지</th>
+						<td id="stime"></td>
+					</tr>
+					<tr>
+						<th scope="row">도착시간/도착지</th>
+						<td id="etime"></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</section>
 

@@ -28,8 +28,10 @@ $(document).ready(function(){
     			output += '</thead>';
     			output += '<tbody>';
     			output += '<tr><th scope="row">날짜</th><td>'+data[i].paydate+'</td></tr>';
+    			output += '<tr><th scope="row">출근/퇴근</th><td id="commuteType">'+data[i].d_commute+'</td></tr>';
     			output += '<tr><th scope="row">결제 방법</th><td>'+data[i].paymethod+'</td></tr>';
-    			output += '<tr><th scope="row">총 운행거리/총 운행시간</th><td>'+data[i].d_distance+' km/ '+(data[i].d_endtime-data[i].d_starttime)+' 분</td></tr>';
+//    			output += '<tr><th scope="row">총 운행거리/총 운행시간</th><td>'+data[i].d_distance+' km/ '+(data[i].d_endtime - data[i].d_starttime)+' 분</td></tr>';
+    			output += '<tr><th scope="row">총 운행거리</th><td>'+data[i].d_distance+' km</td></tr>';
     			output += '<tr><th scope="row">출발시간/출발지</th><td id="stime">'+data[i].d_starttime+' / '+data[i].d_startpoint+'</td></tr>';
     			output += '<tr><th scope="row">도착시간/도착지</th><td id="etime">'+data[i].d_endtime+' / '+data[i].d_endpoint+'</td></tr>';
     			output += '</tbody></table></div><a href="'+'http://localhost:8080/parclient/review/driverWrite.jsp?payidx='+data[i].payidx+'" class="btn btn-primary rvBtn">후기작성</a></div></div></div>';

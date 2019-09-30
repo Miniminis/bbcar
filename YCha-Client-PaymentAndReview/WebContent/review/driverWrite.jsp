@@ -94,7 +94,7 @@
 			    <input type="text" class="form-control" id="comment" aria-describedby="emailHelp" placeholder="후기 내용을 작성해주세요." value=" ">
 		    </div>
 		    <input type="hidden" name="payidx" id="payidx">
-		    <input type="hidden" name="d_idx" id="d_idx" value="19">		    		    
+		    <input type="hidden" name="d_idx" id="d_idx" value="2">		    		    
 		</form>
 		<!-- 2019.09.14 : submit 버튼을 form 내부에 넣으니 form 전송이 제대로 되지 않는 현상이 발생했다.
 		post 요청하여 DB까지도 정상적으로 저장되었고 rscnt 도 정상적으로 return 했으나 success function() 내부에 접근하지 못했음. 

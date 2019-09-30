@@ -24,10 +24,6 @@ public class TossInsertService {
 
 		// 결제 내역 등록 
 		PaymentEntity entity = new PaymentEntity();
-		
-		/* 테이블 조인 때문에 아래와 같이 설정하고 난 뒤에 : setter를 쓸 수 가 없는 상황 발생. 
-		 * @Column(length = 10, nullable = false, insertable = false, updatable = false)
-		private int r_idx;*/
 	
 		entity.setR_idx(r_idx);
 		entity.setPaymethod(paymethod);

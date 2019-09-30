@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +8,10 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- iamport.payment.js -->
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
 <!-- bootstrap cdn 적용  -->
 <link rel="stylesheet"
@@ -45,10 +49,9 @@
 <link rel="stylesheet" href="<c:url value='/static/css/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/payment.css'/>">
 <script src="<c:url value='/static/js/payment.js'/>"></script>
-
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
-	
+
 	<!--navbar 시작-->
 	<%@ include file="/frame/passengerNavbar.jsp"%>
 	<!--navbar 끝 -->
@@ -71,13 +74,13 @@
 								<img alt="toss" onclick="tossPayProcess()"
 									src="images/pay-toss.png" class="rounded-lg payimg">
 							</div>
-							<div class="col-md-3">
+							<!-- <div class="col-md-3">
 								<img alt="payco" src="images/pay-payco.png"
-									class="rounded-lg payimg">
-							</div>
+									onclick="paycoProcess()" class="rounded-lg payimg">
+							</div> -->
 							<div class="col-md-3">
 								<img alt="card" src="images/pay-card.png"
-									class="rounded-lg payimg">
+									onclick="importProcess()" class="rounded-lg payimg">
 							</div>
 						</div>
 

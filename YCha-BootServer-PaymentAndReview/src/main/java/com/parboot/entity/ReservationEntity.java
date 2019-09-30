@@ -95,4 +95,24 @@ public class ReservationEntity {
 	
 	@OneToOne(mappedBy = "reservationEntity")  //PAYMENT와 일대일 관계 
 	private PaymentEntity paymentEntity;
+	
+	public PaymentEntity getPaymentEntity() {
+		return paymentEntity;
+	}
+
+	public void setPaymentEntity(PaymentEntity paymentEntity) {
+		this.paymentEntity = paymentEntity;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name = "p_idx", insertable = false, updatable = false)
+	private PassengerEntity passengerEntity;
+
+	public PassengerEntity getPassengerEntity() {
+		return passengerEntity;
+	}
+
+	public void setPassengerEntity(PassengerEntity passengerEntity) {
+		this.passengerEntity = passengerEntity;
+	}
 }
