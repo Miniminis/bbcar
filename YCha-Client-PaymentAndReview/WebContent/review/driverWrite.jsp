@@ -86,7 +86,7 @@
 			<!-- 후기 : 익명의 사용자 닉네임, 후기내용   -->
 			<div class="form-group">
 			    <label for="nickname">작성자</label> <!-- 현재 세션에서 d_idx, nickname 값 구해서 input 에 넣어주기  -->
-			    <input type="text" class="form-control" id="nickname" value="익명의 운전자" aria-describedby="emailHelp" readonly>
+			    <input type="text" class="form-control" id="nickname" value="${loginInfo.nickname}" aria-describedby="emailHelp" readonly>
 			    <small id="textHelp" class="form-text text-muted">솔직한 후기를 위해 작성자의 이름은 임의의 닉네임으로 표시 됩니다.</small>
 		    </div>
 		    <div class="form-group">
@@ -94,7 +94,7 @@
 			    <input type="text" class="form-control" id="comment" aria-describedby="emailHelp" placeholder="후기 내용을 작성해주세요." value=" ">
 		    </div>
 		    <input type="hidden" name="payidx" id="payidx">
-		    <input type="hidden" name="d_idx" id="d_idx" value="2">		    		    
+		    <input type="hidden" name="d_idx" id="d_idx" value="${loginInfo.d_idx}">		    		    
 		</form>
 		<!-- 2019.09.14 : submit 버튼을 form 내부에 넣으니 form 전송이 제대로 되지 않는 현상이 발생했다.
 		post 요청하여 DB까지도 정상적으로 저장되었고 rscnt 도 정상적으로 return 했으나 success function() 내부에 접근하지 못했음. 

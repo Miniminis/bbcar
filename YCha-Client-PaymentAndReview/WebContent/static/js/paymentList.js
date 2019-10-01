@@ -35,6 +35,9 @@ $(document).ready(function(){
     			output += '<tr><th scope="row">출발시간/출발지</th><td id="stime">'+data[i].d_starttime+' / '+data[i].d_startpoint+'</td></tr>';
     			output += '<tr><th scope="row">도착시간/도착지</th><td id="etime">'+data[i].d_endtime+' / '+data[i].d_endpoint+'</td></tr>';
     			output += '</tbody></table></div><a href="'+'http://localhost:8080/parclient/review/passengerWrite.jsp?payidx='+data[i].payidx+'" class="btn btn-primary rvBtn">후기작성</a></div></div></div>';
+    			
+    			//후기 작성 안한 건수만 버튼 표시 
+    			
     		}
     		$('#passengerPayList').html(output);
     	},

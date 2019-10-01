@@ -50,7 +50,7 @@
 	<!--navbar 끝 -->
 	
 	<!-- session에서 현재 운전자의 d_idx 넣어주기 -->
-	<input type="hidden" name="d_idx" id="d_idx" value="2">		    		    
+	<input type="hidden" name="d_idx" id="d_idx" value="${loginInfo.d_idx}">		    		    
 
 	<section class="ftco-intro">
 		<div class="container">

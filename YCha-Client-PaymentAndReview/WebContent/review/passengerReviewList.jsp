@@ -47,7 +47,7 @@
 	<!--navbar 끝 -->
 	
 	<!--  ${sessionScope.loginInfo.p_idx}  -->
-	<input type="hidden" name="p_idx" id="p_idx" value="11">		    		    
+	<input type="hidden" name="p_idx" id="p_idx" value="${login.idx}">		    		    
 	
 	<div class="container">
 		<section id="reviewByDrivers" class="ftco-intro">

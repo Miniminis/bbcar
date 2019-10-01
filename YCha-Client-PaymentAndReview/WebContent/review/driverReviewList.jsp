@@ -47,7 +47,7 @@
 	<!--navbar 끝 -->
 	
 	<!--  ${sessionScope.loginInfo.d_idx}  -->
-	<input type="hidden" name="d_idx" id="d_idx" value="2">		    		    
+	<input type="hidden" name="d_idx" id="d_idx" value="${loginInfo.d_idx}">		    		    
 
 	<div class="container">
 		<section id="reviewByPassenger" class="ftco-intro">
