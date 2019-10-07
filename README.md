@@ -44,7 +44,7 @@
     * `RDS`
 
 #### 버전설명
-* 자세한 사항은 본 repository의 커밋 내역 중 [YCha-PaymentAndReview]를 참고
+* 자세한 사항은 본 repository의 커밋 내역 중 [YCha-Payment]를 참고
 * v0
    * 프로젝트 기획, 업무분담
    * DB erd로 테이블 구조 설정 
