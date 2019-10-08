@@ -8,7 +8,7 @@
 
 #### 흐름도
 * 전체 : 
-<img src="https://github.com/Miniminis/BBCar/blob/master/ycar-graph.png">
+<img src="https://github.com/Miniminis/BBCar/blob/master/ycar_frame.png">
 
 * 결제 페이지 : 
 <img src="https://github.com/Miniminis/BBCar/blob/master/payment.png">
