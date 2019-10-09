@@ -3,6 +3,14 @@
 >[탑승자 페이지 Link](http://13.125.252.85:8080/passenger/) <br>
 >[운전자 페이지 Link](http://13.125.252.85:8080/driver/)
 
+#### 구현화면 
+![메인화면](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar2.png)
+![카풀등록 및 선택](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar3.png)
+![운행중](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar15.png)
+![결제수단선택](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar17.png)
+![결제내역](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar18.png)
+![후기작성](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar19.png)
+
 #### 소스코드 
 * [전체 소스코드](https://github.com/mand2/y-car-project)
 
@@ -15,9 +23,6 @@
 
 * 후기 페이지 : 
 <img src="https://github.com/Miniminis/BBCar/blob/master/review.png">
-
-#### 구현화면 
-<img src="">
 
 #### 기술/구조
 * 웹 표준 
@@ -71,6 +76,9 @@
    * `아임포트 KG 이니시스` 결제 api 구현 완료
    * 프로젝트의 운전자 및 탑승자 로그인/회원가입 부분과 연결을 위해 로그인 세션 값 설정 완료 
    * 전체 프로젝트 결합 완료 
+* v4 
+   * NodeJS로 탑승자 후기작성부분 서버 재구성 진행중
+   * Spring-Boot 및 JPA 이용, 운전자 후기작성부분 서버 재구성 진행중 
    
 #### 결제 및 후기 파트를 구현하면서 겪었던 어려움 
 * 혼자서 운전자와 탑승자 부분을 동시에 구현하다보니 겹치는 코드들을 이용하여 두 부분을 같은 프로젝트 폴더 내에서 구현을 해야할지, 아니면 확장성을 고려하여 처음부터 다른 패키지에 구현을 해야할지 고민이 많았음 
