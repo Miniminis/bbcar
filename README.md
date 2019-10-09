@@ -15,7 +15,7 @@
 * [전체 소스코드](https://github.com/mand2/y-car-project)
 
 #### 흐름도
-* 전체 : 
+* 전체 : [크게보기](https://raw.githubusercontent.com/Miniminis/BBCar/master/ycar_frame.png)
 <img src="https://github.com/Miniminis/BBCar/blob/master/ycar_frame.png">
 
 * 결제 페이지 : 
