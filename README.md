@@ -13,11 +13,15 @@
 
 #### 소스코드 
 * [전체 소스코드 GROUP GITHUB LINK - 초기버전](https://github.com/mand2/y-car-project)
-* [개인 소스코드 PERSONAL GITHUB LINK - 개선 진행중](https://github.com/Miniminis/BBCar/tree/master/Ycar-All-Project-v2)
+* [개인 소스코드 PERSONAL GITHUB LINK - 개선 진행중](https://github.com/Miniminis/BBCar/tree/master/Ycar-All-Project-v2) 
+
+#### 결제/후기 페이지 구조
+<img src="https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/YCAR.png">
 
 #### 흐름도
-* 전체 : [크게보기](https://raw.githubusercontent.com/Miniminis/BBCar/master/ycar_frame.png)
-<img src="https://github.com/Miniminis/BBCar/blob/master/ycar_frame.png">
+* 전체 : 
+<img src="https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/driver_flow.png">
+<img src="https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/passenger_flow.png">
 
 * 결제 페이지 : 
 <img src="https://github.com/Miniminis/BBCar/blob/master/payment.png">
@@ -58,15 +62,17 @@
 
 
 #### 결제 및 후기 파트를 구현하면서 겪었던 어려움 
-* 혼자서 운전자와 탑승자 부분을 동시에 구현하다보니 겹치는 코드들을 이용하여 두 부분을 같은 프로젝트 폴더 내에서 구현을 해야할지, 아니면 확장성을 고려하여 처음부터 다른 패키지에 구현을 해야할지 고민이 많았음 <br>
---> 향후 확장성 및 코드 관리의 용이함을 위해 프로젝트를 분리하여 관리하기로함. 그에 맞춰 대대적인 프로젝트 구조 변경 작업이 진행되었음.  <br>
+* **유사 코드에 대한 구조적 고민** <br>
+혼자서 운전자와 탑승자 부분을 동시에 구현하다보니 겹치는 코드들을 이용하여 두 부분을 같은 프로젝트 폴더 내에서 구현을 해야할지, 아니면 확장성을 고려하여 처음부터 다른 패키지에 구현을 해야할지 고민이 많았음 <br>
+--> **향후 확장성 및 코드 관리의 용이함**을 위해 프로젝트를 분리하여 관리하기로함. 그에 맞춰 대대적인 프로젝트 구조 변경 작업이 진행되었음.  <br>
 
-* 특정 탑승자와 특정 운전자가 다른 어플리케이션에서 실시간으로 데이터를 공유하고 통신을 해야 했음 <br>
---> `NodeJS` 및 `socket.io`를 이용한 통신으로 해결함 <br>
---> Unique 값인 예약번호(r_idx)를 이용하여 특정 탑승자와 특정 운전자 단 둘만 join 할 수 있는 room 을 생성하고 배열에 담음 <br>
+* **두 사용자의 실시간 데이터 공유** <br>
+특정 탑승자와 특정 운전자가 다른 어플리케이션에서 실시간으로 데이터를 공유하고 통신을 해야 했음 <br>
+--> **`NodeJS`** 및 **`socket.io`** 를 이용한 통신으로 해결함 <br>
+--> Unique 값인 예약번호(r_idx)를 이용하여 **특정 탑승자와 특정 운전자 단 둘만 join 할 수 있는 room 을 생성하고 배열에 담음** <br>
 --> 통신으로 두 사용자 간 데이터 공유가 필요한 페이지마다 room join event 처리 <br>
 --> node 서버에서는 event listener 에 맞는 callback 함수가 처리되도록 함 <br>
---> 운행 종료시 발행하는 이벤트 서버단 코드 <br>
+--> 운행 종료시 발생하는 이벤트 서버단 코드 <br>
 ```
 //운행 종료 시 room join 처리
     socket.on('join room', function(r_idx){
@@ -91,8 +97,9 @@
     });
 ```
 
-* Spring Boot 및 JPA 를 프로젝트에 적용하는 과정에서 조인이 많은 Sql 문의 경우 구현하는데 어려움이 있었음 <br>
---> @JoinColumn 을 이용, @OneToMany, @ManyToOne, @OneToOne 등 컬럼간 관계설정을 통해 다소 까다로웠던 조인문을 구현할 수 있었음 <br>
+* **조인이 많은 SQL 문의 JPA 적용**  <br>
+Spring Boot 및 JPA 를 프로젝트에 적용하는 과정에서 **조인이 많은 SQL 조건문** 의 경우 구현하는데 어려움이 있었음 <br>
+--> **@JoinColumn** 을 이용, @OneToMany, @ManyToOne, @OneToOne 등 **컬럼간 관계설정** 을 통해 다소 까다로웠던 조인문을 구현할 수 있었음 <br>
 --> ReservationEntity 에서 CarpoolEntity와 조인컬럼 처리한 코드 <br>
 ```
 @ManyToOne	//다 대 일 관계 : 예약 - 카풀경로
@@ -108,11 +115,11 @@
 	}
 ```
 
-* 협업 시, 코드를 결합하는 과정에서 시간이 많이 소요됨 <br>
---> git의 효율적인 사용을 통해 보완해가야할 점 
+* **협업** 시, 코드를 결합하는 과정에서 시간이 많이 소요됨 <br>
+--> **git** 의 효율적인 사용을 통해 보완해가야할 점 
 
-* Node 서버 Firebase 배포 과정에서 어려움을 겪고 있음 
-* Boot 서버 AWS 배포 과정에서 어려움을 겪고 있음 
+* **Node 서버 Firebase 배포** 
+* **Boot 서버 AWS 배포** 
 
 
 #### 버전설명
