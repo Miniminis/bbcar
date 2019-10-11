@@ -1,4 +1,4 @@
-var socket = io('http://localhost:3000');
+var socket = io('http://54.180.123.46:3000/');
 $(document).ready(function(){
 
 	//url 처음부터 ?까지 삭제 

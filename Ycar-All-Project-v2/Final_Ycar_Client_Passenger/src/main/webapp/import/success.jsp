@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- socket io -->
-<script src="http://localhost:3000/socket.io/socket.io.js"></script> 
+<script src="http://54.180.123.46:3000/socket.io/socket.io.js"></script> 
 
 <!-- bootstrap cdn 적용  -->
 <link rel="stylesheet"

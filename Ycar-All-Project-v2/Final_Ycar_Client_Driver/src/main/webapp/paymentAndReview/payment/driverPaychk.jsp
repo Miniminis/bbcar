@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- 탑승자와 socket 통신을 위한 라이브러리 추가  -->
-<script src="http://localhost:3000/socket.io/socket.io.js"></script> 
+<script src="http://54.180.123.46:3000/socket.io/socket.io.js"></script> 
 
 <!-- bootstrap cdn 적용  -->
 <link rel="stylesheet"

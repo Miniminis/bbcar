@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<c:url value='/staticD/css/style.css'/>">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="http://54.180.123.46:3000/socket.io/socket.io.js"></script> 
     <script src="https://apis.openapi.sk.com/tmap/js?version=1&format=javascript&appKey=61f9f7ec-2010-4d26-97e1-806dc10dce63"></script>
 </head>
 <style>
@@ -64,7 +64,7 @@
         $(document).ready(function() {
             
 
-            var socket = io('http://localhost:3000');
+            var socket = io('http://54.180.123.46:3000/');
 
             //이전 url 에서 r_idx 받아오기
             var params = document.location.search.substring('1');

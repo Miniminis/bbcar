@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="http://54.180.123.46:3000/socket.io/socket.io.js"></script>
 <link rel="stylesheet" href="static/style.css">
 <!-- tmap -->
 <script src="https://apis.openapi.sk.com/tmap/js?version=1&format=javascript&appKey=5beda631-7db0-4be9-b0bd-b6b5a7f41945"></script>
@@ -60,7 +60,7 @@
       
       // param : 1) ${loginInfo.p_idx}"  2) 현재 사용자의 r_idx
       $(document).ready(function(){
-     	  var socket = io('http://localhost:3000');
+     	  var socket = io('http://54.180.123.46:3000/');
     	  var r_idx = document.location.search.substring('1').split('=')[1];
          console.log('r_idx 확인 : ', r_idx);  
          socket.emit('join room', r_idx); 

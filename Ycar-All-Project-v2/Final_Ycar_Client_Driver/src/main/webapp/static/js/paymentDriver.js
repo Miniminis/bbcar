@@ -4,7 +4,7 @@
  * 1. 사용자 페이지와 통신 - 입금 내역 데이터 받아오기 (json)
  * 2. 해당 내역 출력 
  * */
-var socket = io('http://localhost:3000');
+var socket = io('http://54.180.123.46:3000/');
 
 var r_idx = document.location.search.substring('1').split('=')[1];
 console.log('r_idx 확인 : ', r_idx);  

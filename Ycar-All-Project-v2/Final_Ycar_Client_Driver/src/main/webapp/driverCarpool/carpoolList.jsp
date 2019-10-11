@@ -6,7 +6,7 @@
 <head>
     <title>리스트 출력</title>
 
-   <script src="http://localhost:3000/socket.io/socket.io.js"></script> 
+   <script src="http://54.180.123.46:3000/socket.io/socket.io.js"></script> 
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -262,7 +262,7 @@
 	<script src="<c:url value='/staticD/js/jquery.min.js'/>"></script>
     <script src="<c:url value='/staticD/js/jquery-migrate-3.0.1.min.js'/>"></script>
     <script src="<c:url value='/staticD/js/popper.min.js'/>"></script>
-	<%-- <script src="<c:url value='/staticD/js/bootstrap.min.js'/>"></script> --%>
+	<script src="<c:url value='/staticD/js/bootstrap.min.js'/>"></script>
 	<script src="<c:url value='/staticD/js/jquery.easing.1.3.js'/>"></script>
 	<script src="<c:url value='/staticD/js/jquery.waypoints.min.js'/>"></script>
 	<script src="<c:url value='/staticD/js/jquery.stellar.min.js'/>"></script>
@@ -280,7 +280,7 @@
 <script>
 
    //소켓 연결 
-   var socket = io('http://localhost:3000');
+   var socket = io('http://54.180.123.46:3000/');
 
    var count = 0;
 
