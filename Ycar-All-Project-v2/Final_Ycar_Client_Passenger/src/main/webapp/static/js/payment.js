@@ -33,7 +33,7 @@ function tossPayProcess() {
 	console.log('tosspay 요청 01  '+r_idx);
 	
 	$.ajax({
-		url : 'http://localhost:8090/parboot/payment/toss/r_idx/'+r_idx,
+		url : 'http://13.209.48.59:8090/parboot/payment/toss/r_idx/'+r_idx,
 		type : 'POST',
 		dataType : 'json',
 		success : function(data) {
@@ -75,7 +75,7 @@ function importProcess() {
 	//3. import 응답 데이터 결제 성공 페이지: 파라미터로 넘겨주기 
 	
 	$.ajax({
-		url : 'http://localhost:8090/parboot/payment/import/r_idx/'+r_idx,
+		url : 'http://13.209.48.59:8090/parboot/payment/import/r_idx/'+r_idx,
 		type : 'GET',
 		dataType : 'json',
 		success : function(data) {

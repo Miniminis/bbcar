@@ -96,9 +96,6 @@ body {
       </div>
    </div>
 </div>
-
-
-
       <script>
       var p_idx = ${sessionScope.login.idx};
       var socket = io('http://54.180.123.46:3000/');
@@ -110,6 +107,8 @@ body {
           socket.on('startroom join result', function(msg){
              console.log(msg);
           });
+          
+          alert('운전자가 운행 시작 버튼을 누르면 자동으로 운행이 시작됩니다. 조금만 기다려주세요!');
       }
       
       //운행중 page 로 redirect 

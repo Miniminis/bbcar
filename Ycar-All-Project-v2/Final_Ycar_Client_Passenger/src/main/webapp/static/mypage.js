@@ -125,7 +125,7 @@
         	var idx = $('#sessionIdx').val();
         	
         	$.ajax({
-                url: 'http://localhost:8090/findRoute/' + idx,
+                url: 'http://13.209.48.59:8090/findRoute/' + idx,
                 type: 'GET',
                 success: function(data) {
                 	
@@ -144,7 +144,7 @@
         	var idx = $('#sessionIdx').val();
         	
         	$.ajax({
-                url: 'http://localhost:8090/findEnv/' + idx,
+                url: 'http://13.209.48.59:8090/findEnv/' + idx,
                 type: 'GET',
                 success: function(data) {
                 	
@@ -175,7 +175,7 @@
         	var idx = $('#sessionIdx').val();
         	
         	$.ajax({
-                url: 'http://localhost:8090/rsvList/' + idx,
+                url: 'http://13.209.48.59:8090/rsvList/' + idx,
                 type: 'GET',
                 success: function(data) {
                 	
