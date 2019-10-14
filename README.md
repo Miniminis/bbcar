@@ -1,24 +1,37 @@
-# Ycar - payment and review
+# Spring, Spring-Boot, NodeJS를 이용해서 구현한 카풀 웹앱 프로젝트 - 결제 및 후기 페이지
 > 직장인을 위한 안전한 카풀앱, 연차 - 결제 및 후기 페이지 <br>
->[탑승자 페이지 Link](http://13.125.252.85:8080/passenger/) <br>
->[운전자 페이지 Link](http://13.125.252.85:8080/driver/)
+> [탑승자 데모 페이지 Link](http://13.125.252.85:8080/passenger/) <br>
+> [운전자 데모 페이지 Link](http://13.125.252.85:8080/driver/) <br>
+> 구현화면 : 하단 참조
 
-#### 구현화면 
-![메인화면](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar2.png)
-![카풀등록 및 선택](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar3.png)
-![운행중](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar15.png)
-![결제수단선택](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar17.png)
-![결제내역](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar18.png)
-![후기작성](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar19.png)
+## 기술/구조
+* 웹 표준 
+    * `HTML5`
+    * `CSS3`
+    * `JavaScript`
+    * `jQuery`
+    * `Bootstrap4`
+* TOMCAT 컨테이너 사용
+* DBMS - `MySQL`
+* Spring Framework, Spring-Boot, NodeJs(Socket.io)
+* `MyBatis`, `JPA`
+* 결제 Api 사용 
+    * `jQuery`, `aJax`, `JSON` 파싱
+    * 카카오페이 api
+    * Toss Api 
+    * 아임포트 api
+* `RESTful Api 구조`  
+    * 서버 <--> 클라이언트 통신을 위한 REST 인터페이스 구현
+* `Spring Boot` & `JPA`: 결제 기능 중 `Toss Api` 와 `아임포트 Api` 부분은 Spring Boot 와 JPA 를 이용하여 구현함 
+* `NodeJS` : 탑승자와 운전자 소켓 통신을 통한 데이터 공유 부분을 NodeJs의 Socket.io 를 이용하여 구현함 
+* `AWS` 배포 : Spring, Spring-Boot, Node 프로젝트 서버 부분
+    * `EC2`
+    * `RDS` 
 
-#### 소스코드 
-* [전체 소스코드 GROUP GITHUB LINK - 초기버전](https://github.com/mand2/y-car-project)
-* [개인 소스코드 PERSONAL GITHUB LINK - 개선 진행중](https://github.com/Miniminis/BBCar/tree/master/Ycar-All-Project-v2) 
-
-#### 결제/후기 페이지 구조
+## 결제/후기 페이지 구조
 <img src="https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/YCAR.png">
 
-#### 흐름도
+## 흐름도
 * 전체 : 
 <img src="https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/driver_flow.png">
 <img src="https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/passenger_flow.png">
@@ -29,39 +42,17 @@
 * 후기 페이지 : 
 <img src="https://github.com/Miniminis/BBCar/blob/master/review.png">
 
-#### 기술/구조
-* 웹 표준 
-    * `HTML5`
-    * `CSS3`
-    * `JavaScript`
-    * `jQuery`
-    * `Bootstrap4`
-* TOMCAT 컨테이너 사용
-* DBMS - `MySQL`
-* Spring Framework
-* `MyBatis`
-* 결제 Api 사용 
-    * `jQuery`, `aJax`, `JSON` 파싱
-    * 카카오페이 api
-    * Toss Api 
-    * 아임포트 api
-* `RESTful Api 구조`  
-    * 서버 <--> 클라이언트 통신을 위한 REST 인터페이스 구현
-* `Spring Boot` & `JPA`: 결제 기능 중 `Toss Api` 와 `아임포트 Api` 부분은 Spring Boot 와 JPA 를 이용하여 구현함 
-* `NodeJS` : 탑승자와 운전자 소켓 통신을 통한 데이터 공유 부분을 NodeJs의 Socket.io 를 이용하여 구현함 
-* `AWS` 배포
-    * `EC2`
-    * `RDS`
+## 소스코드 
+* [전체 소스코드 GROUP GITHUB LINK - 초기버전](https://github.com/mand2/y-car-project)
+* [개인 소스코드 PERSONAL GITHUB LINK - 개선 진행중](https://github.com/Miniminis/BBCar/tree/master/Ycar-All-Project-v2)  
  
- 
-#### 프로젝트 설명 PPT 
+## 프로젝트 PPT 
 * 각 기능 설명 
 * 구현 중 어려웠던 점 
 * 협업 시 어려웠던 점
 * [Link](https://docs.google.com/presentation/d/1_1OVTik6grzxKbo3_WMnwzl9_Jl6KYHD/edit)
 
-
-#### 결제 및 후기 파트를 구현하면서 겪었던 어려움 
+## 결제 및 후기 파트를 구현하면서 겪었던 어려움 
 * **유사 코드에 대한 구조적 고민** <br>
 혼자서 운전자와 탑승자 부분을 동시에 구현하다보니 겹치는 코드들을 이용하여 두 부분을 같은 프로젝트 폴더 내에서 구현을 해야할지, 아니면 확장성을 고려하여 처음부터 다른 패키지에 구현을 해야할지 고민이 많았음 <br>
 --> **향후 확장성 및 코드 관리의 용이함**을 위해 프로젝트를 분리하여 관리하기로함. 그에 맞춰 대대적인 프로젝트 구조 변경 작업이 진행되었음.  <br>
@@ -118,11 +109,21 @@ Spring Boot 및 JPA 를 프로젝트에 적용하는 과정에서 **조인이 �
 * **협업** 시, 코드를 결합하는 과정에서 시간이 많이 소요됨 <br>
 --> **git** 의 효율적인 사용을 통해 보완해가야할 점 
 
-* **Node 서버 Firebase 배포** 
-* **Boot 서버 AWS 배포** 
+* **Node 서버**, **Boot 서버 AWS 배포** <br>
+익숙했던 Spring Project 가 아닌, 새롭게 배워 적용한 nodeJS 및 Spring-boot 프로젝트를 배포하는 과정에서 시행착오를 겪음. <br>
+--> 그러나 유투브 및 구글 검색을 통해 우리 프로젝트에 맞는 환경에서 aws ec2로 배포하는 과정을 무사히 완료함 
 
 
-#### 버전설명
+## 구현화면 
+![메인화면](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar2.png)
+![카풀등록 및 선택](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar3.png)
+![운행중](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar15.png)
+![결제수단선택](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar17.png)
+![결제내역](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar18.png)
+![후기작성](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar19.png)
+
+
+## 버전설명
 * 자세한 사항은 본 repository의 커밋 내역 중 [YCha-Payment]를 참고
 * v0
    * 프로젝트 기획, 업무분담
