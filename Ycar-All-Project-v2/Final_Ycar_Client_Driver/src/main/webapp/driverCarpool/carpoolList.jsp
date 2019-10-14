@@ -177,10 +177,10 @@
     }
 
 
-    span {
+   /*  span {
         color: black;
         font-weight: bolder;
-    }
+    } */
 
     .CommuteSPAN {
         display: inline-block;

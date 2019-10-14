@@ -140,10 +140,10 @@ body {
 	height: 40px;
 }
 
-span {
+/* span {
 	color: black;
 	font-weight: bolder;
-}
+} */
 
 .CommuteSPAN {
 	display: inline-block;
