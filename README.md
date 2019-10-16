@@ -26,8 +26,8 @@
 * `NodeJS` : 탑승자와 운전자 소켓 통신을 통한 데이터 공유 부분을 NodeJs의 Socket.io 를 이용하여 구현함 
 * `AWS` 배포 : Spring, Spring-Boot, Node 프로젝트 서버 부분
     * `EC2`
-    * `RDS` 
-
+    * `RDS`  
+ 
 ## 결제/후기 페이지 구조
 <img src="https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/YCAR.png">
 
@@ -45,7 +45,7 @@
 ## 소스코드 
 * [전체 소스코드 GROUP GITHUB LINK - 초기버전](https://github.com/mand2/y-car-project)
 * [개인 소스코드 PERSONAL GITHUB LINK - 개선 진행중](https://github.com/Miniminis/BBCar/tree/master/Ycar-All-Project-v2)  
- 
+
 ## 프로젝트 PPT 
 * 각 기능 설명 
 * 구현 중 어려웠던 점 
@@ -113,6 +113,16 @@ Spring Boot 및 JPA 를 프로젝트에 적용하는 과정에서 **조인이 �
 익숙했던 Spring Project 가 아닌, 새롭게 배워 적용한 nodeJS 및 Spring-boot 프로젝트를 배포하는 과정에서 시행착오를 겪음. <br>
 --> 그러나 유투브 및 구글 검색을 통해 우리 프로젝트에 맞는 환경에서 aws ec2로 배포하는 과정을 무사히 완료함 
 
+## 테스트 안내 
+**연차는 탑승자와 운전자간의 소통이 필수적인 카풀 웹 어플리케이션입니다. 두 화면을 같이 띄워서 테스트 해보시는 것을 권장합니다.** 
+1. 탑승자 계정 : 
+* ID : passengerggg
+* PW : gggg1!
+<br>
+
+2. 운전자 계정 : 
+* ID : test2
+* PW : 1234
 
 ## 구현화면 
 ![메인화면](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar2.png)
