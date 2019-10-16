@@ -3,6 +3,7 @@
 > [탑승자 데모 페이지 Link](http://13.125.252.85:8080/passenger/) <br>
 > [운전자 데모 페이지 Link](http://13.125.252.85:8080/driver/) <br>
 > 구현화면 : 하단 참조
+<br><br>
 
 ## 기술/구조
 * 웹 표준 
@@ -27,9 +28,11 @@
 * `AWS` 배포 : Spring, Spring-Boot, Node 프로젝트 서버 부분
     * `EC2`
     * `RDS`  
- 
+<br><br>
+
 ## 결제/후기 페이지 구조
 <img src="https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/YCAR.png">
+<br><br>
 
 ## 흐름도
 * 전체 : 
@@ -41,16 +44,19 @@
 
 * 후기 페이지 : 
 <img src="https://github.com/Miniminis/BBCar/blob/master/review.png">
+<br><br>
 
 ## 소스코드 
 * [전체 소스코드 GROUP GITHUB LINK - 초기버전](https://github.com/mand2/y-car-project)
 * [개인 소스코드 PERSONAL GITHUB LINK - 개선 진행중](https://github.com/Miniminis/BBCar/tree/master/Ycar-All-Project-v2)  
+<br><br>
 
 ## 프로젝트 PPT 
 * 각 기능 설명 
 * 구현 중 어려웠던 점 
 * 협업 시 어려웠던 점
 * [Link](https://docs.google.com/presentation/d/1_1OVTik6grzxKbo3_WMnwzl9_Jl6KYHD/edit)
+<br><br>
 
 ## 결제 및 후기 파트를 구현하면서 겪었던 어려움 
 * **유사 코드에 대한 구조적 고민** <br>
@@ -112,17 +118,20 @@ Spring Boot 및 JPA 를 프로젝트에 적용하는 과정에서 **조인이 �
 * **Node 서버**, **Boot 서버 AWS 배포** <br>
 익숙했던 Spring Project 가 아닌, 새롭게 배워 적용한 nodeJS 및 Spring-boot 프로젝트를 배포하는 과정에서 시행착오를 겪음. <br>
 --> 그러나 유투브 및 구글 검색을 통해 우리 프로젝트에 맞는 환경에서 aws ec2로 배포하는 과정을 무사히 완료함 
+<br><br>
 
 ## 테스트 안내 
 **연차는 탑승자와 운전자간의 소통이 필수적인 카풀 웹 어플리케이션입니다. 두 화면을 같이 띄워서 테스트 해보시는 것을 권장합니다.** 
-1. 탑승자 계정 : 
+
+**1. 탑승자 계정 :**
 * ID : passengerggg
 * PW : gggg1!
 <br>
 
-2. 운전자 계정 : 
+**2. 운전자 계정 :**
 * ID : test2
 * PW : 1234
+<br><br>
 
 ## 구현화면 
 ![메인화면](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar2.png)
@@ -131,7 +140,7 @@ Spring Boot 및 JPA 를 프로젝트에 적용하는 과정에서 **조인이 �
 ![결제수단선택](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar17.png)
 ![결제내역](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar18.png)
 ![후기작성](https://github.com/Miniminis/BBCar/blob/master/ycar_screenshots/ycar19.png)
-
+<br><br>
 
 ## 버전설명
 * 자세한 사항은 본 repository의 커밋 내역 중 [YCha-Payment]를 참고
