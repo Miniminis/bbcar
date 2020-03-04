@@ -123,7 +123,7 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<!-- @Responsebody를 쓰면 객체를 Json으로 반환할 수 있도록 해줌 -->
-			<version>2.9.8</version>
+			<version>2.9.10.3</version>
 		</dependency>       
 		
 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
